@@ -1,0 +1,53 @@
+page-home {
+
+    .slideBanner{
+        height: 170px !important;
+    }
+
+ /*    .swiper-container {
+        height: 230px;
+    }
+    
+    .swiper-wrapper {
+        height: 205px;
+    } */
+
+    .banner{
+        background-size: cover;
+    }
+    
+    .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets{
+        background-color: #8560b3;
+        bottom: 0px;
+    }
+
+    ion-row {
+        text-align: center;
+    }
+    
+    ion-badge{
+        width: 100%;
+    }
+
+    .item-inner{
+        border-bottom: none !important;
+    }
+    
+     ion-card.card.cardProduct{
+        width: 100px !important;
+    }
+
+    ion-card.cards-list-demo ion-card-header {
+        color: map-get($colors, royal);
+      }
+
+    .imgProduct{
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+    }
+
+    .buyProduct{
+        width: 80px;
+    }
+}
