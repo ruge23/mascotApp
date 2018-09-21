@@ -10,6 +10,9 @@ import { HomePage } from '../pages/home/home';
 import { MasPage } from './../pages/mas/mas';
 import { PendientesPage } from './../pages/pendientes/pendientes';
 import { TabsPage } from '../pages/tabs/tabs';
+import { InternaProductPage } from './../pages/interna-product/interna-product';
+import { AccordionComponent } from './../components/accordion/accordion';
+import { ModalPage } from './../pages/modal/modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +27,10 @@ import { AuthProvider } from '../providers/auth/auth';
     TabsPage,
     LoginPage,
     PendientesPage,
-    MasPage
+    MasPage,
+    InternaProductPage,
+    AccordionComponent,
+    ModalPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,10 @@ import { AuthProvider } from '../providers/auth/auth';
     TabsPage,
     LoginPage,
     PendientesPage,
-    MasPage
+    MasPage,
+    InternaProductPage,
+    AccordionComponent,
+    ModalPage
   ],
   providers: [
     StatusBar,

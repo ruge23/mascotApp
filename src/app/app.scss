@@ -14,3 +14,35 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+// Custom icons
+// Overriding the ion-icon behavior
+// All custom icons will start with "appname-" prefix
+ion-icon {
+    &[class*="mascotapp-"] {
+        // Instead of using the font-based icons
+        // We're applying SVG masks
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        width: 1em;
+        height: 1em;
+    }
+    // custom icons
+    &[class*="mascotapp-carrito"] {
+        mask-image: url('../assets/imgs/elementos/iconos menu footer fix/carrito.svg');
+    }
+    &[class*="mascotapp-favoritos"] {
+        mask-image: url('../assets/imgs/elementos/iconos menu footer fix/icono2.png');
+    }
+    &[class*="mascotapp-home"] {
+        mask-image: url('../assets/imgs/elementos/iconos menu footer fix/home.svg');
+    }
+    &[class*="mascotapp-pendientes"] {
+        mask-image: url('../assets/imgs/elementos/iconos menu footer fix/pendientes.svg');
+    }
+    &[class*="mascotapp-mas"] {
+        mask-image: url('../assets/imgs/elementos/iconos menu footer fix/mas.svg');
+    }
+}

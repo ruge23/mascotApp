@@ -1,21 +1,36 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Slides } from 'ionic-angular';
 
 import { PRODUCTS } from './../../data/product-mok';
 import { MARCAS } from './../../data/marcas-mok';
+import { InternaProductPage } from '../interna-product/interna-product';
+import { SLIDES } from '../../data/slides-mok';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild('slides') slides: Slides;
 
-  images : any;
+  images : any = SLIDES;
   products : any = PRODUCTS;
   marcas : any = MARCAS;
 
   constructor(public navCtrl: NavController) {
-    this.images=['https://www.encantadordeperros.es/wp-content/uploads/2016/12/6-805x452.jpg', 'https://www.encantadordeperros.es/wp-content/uploads/2016/12/6-805x452.jpg', 'https://www.encantadordeperros.es/wp-content/uploads/2016/12/6-805x452.jpg']
+
+  }
+
+  goToInterna(product){
+    this.navCtrl.push(InternaProductPage, product);
+  }
+
+  next() {
+    this.slides.slideNext();
+  }
+
+  prev() {
+    this.slides.slidePrev();
   }
 
 

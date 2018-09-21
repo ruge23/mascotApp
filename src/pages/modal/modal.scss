@@ -1,0 +1,11 @@
+page-modal {
+    .scroll-content{
+        background: linear-gradient(to bottom,  #bd05dd 0%, #108ccc 100%);
+    }
+    .vertical-align-content > *
+    {
+        display: flex!important;
+        align-content: center!important;
+        align-items: center!important;
+    }
+}

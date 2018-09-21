@@ -1,0 +1,14 @@
+page-interna-product {
+    ion-badge{
+        width: 100%;
+    }
+    .item-inner{
+        border-bottom: none !important;
+    }
+    div p{
+        font-size: 1rem !important;
+    }
+    div h3{
+        color: map-get($colors, royal);
+    }
+}
