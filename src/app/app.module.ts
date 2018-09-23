@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -17,6 +18,8 @@ import { ModalPage } from './../pages/modal/modal';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
+import { FavoritesPage } from '../pages/favorites/favorites';
+import { ShopCartPage } from '../pages/shop-cart/shop-cart';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { AuthProvider } from '../providers/auth/auth';
     MasPage,
     InternaProductPage,
     AccordionComponent,
-    ModalPage
+    ModalPage,
+    FavoritesPage,
+    ShopCartPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),    
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,7 +54,9 @@ import { AuthProvider } from '../providers/auth/auth';
     MasPage,
     InternaProductPage,
     AccordionComponent,
-    ModalPage
+    ModalPage,
+    FavoritesPage,
+    ShopCartPage
   ],
   providers: [
     StatusBar,

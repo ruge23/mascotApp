@@ -106,7 +106,7 @@
 <ion-footer>
     <ion-toolbar>
       <ion-buttons left>
-        <button ion-button solid small color="primary">
+        <button ion-button solid small color="primary" (click)="goToPending(detailProduct)">
             <ion-col>
               <ion-icon float-left name="mascotapp-pendientes"></ion-icon>
             </ion-col>
@@ -116,12 +116,12 @@
         </button>
       </ion-buttons>
       <ion-buttons right>
-        <button ion-button solid small color="button">
+        <button ion-button solid small color="button" (click)="goToComprar(detailProduct)">
             <ion-col>
                 <ion-icon float-left name="mascotapp-carrito"></ion-icon>
               </ion-col>
               <ion-col>
-                <div float-right style="font-size: 1rem;">Comprar Ahora</div>
+                <div float-right style="font-size: 1rem;" >Agregar al carrito</div>
               </ion-col>
         </button>
       </ion-buttons>

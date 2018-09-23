@@ -12,19 +12,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab class="cc" right middle>
+<!--   <ion-fab class="cc" right middle>
     <button class="slidebutton">
       <ion-badge class="buttonSlide" color="button">Comprar</ion-badge>
     </button>
-  </ion-fab>
+  </ion-fab> -->
   <ion-slides style="height: 200px !important;" *ngIf="images"  autoplay="5000" loop="true" speed="500" class="slides" pager="true">
     <ion-slide class="slideBanner" *ngFor="let image of images">
       <img class="banner" src="{{image.img}}" alt="Product Image">
     </ion-slide>
     </ion-slides>
-    <ion-fab right bottom>
+   <!--  <ion-fab right bottom>
       <button ion-fab color="add"><ion-icon name="add"></ion-icon></button>
-    </ion-fab>
+    </ion-fab> -->
     <ion-item>
      <!-- <ion-badge color="secondary"></ion-badge> -->
      <ion-grid text-center>

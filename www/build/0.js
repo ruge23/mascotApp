@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 285:
+/***/ 292:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PendientesPageModule", function() { return PendientesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopCartPageModule", function() { return ShopCartPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pendientes__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shop_cart__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PendientesPageModule = /** @class */ (function () {
-    function PendientesPageModule() {
+var ShopCartPageModule = /** @class */ (function () {
+    function ShopCartPageModule() {
     }
-    PendientesPageModule = __decorate([
+    ShopCartPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__pendientes__["a" /* PendientesPage */],
+                __WEBPACK_IMPORTED_MODULE_2__shop_cart__["a" /* ShopCartPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pendientes__["a" /* PendientesPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__shop_cart__["a" /* ShopCartPage */]),
             ],
         })
-    ], PendientesPageModule);
-    return PendientesPageModule;
+    ], ShopCartPageModule);
+    return ShopCartPageModule;
 }());
 
-//# sourceMappingURL=pendientes.module.js.map
+//# sourceMappingURL=shop-cart.module.js.map
 
 /***/ })
 

@@ -1,0 +1,22 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>favorites</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of listProducts" (click)="goToProduct(item)">
+      <ion-thumbnail item-start>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>{{item.name}}</h2>
+      <p>{{item.brand}}</p>
+      <button ion-button clear item-end>Ver</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
