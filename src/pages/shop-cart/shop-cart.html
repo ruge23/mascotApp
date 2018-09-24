@@ -1,43 +1,138 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>shop-cart</ion-title>
-  </ion-navbar>
-
-</ion-header>
+    <ion-navbar style="max-height: 56px !important;" color="royal" >
+      <ion-title>
+        Shop-Cart
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
 
 
 <ion-content>
   <ion-card>
-    <ion-item>
-      <ion-icon ios="logo-usd" md="logo-usd" item-start large></ion-icon>
-      <h2>12.45</h2>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon ios="ios-compass" md="md-compass" item-start large></ion-icon>
-      <h2>14 S. Hop Avenue, Madison, WI 53703</h2>
-  
-    </ion-item>
-
-   <!--  <ion-item>
-      <span item-start>18 min</span>
-      <span item-start>(2.6 mi)</span>
-      <button ion-button icon-start clear item-end>
-        <ion-icon name="navigate"></ion-icon>
-        Start
-      </button>
-    </ion-item> -->
+      <ion-list no-lines *ngIf="listProducts">
+         <div *ngFor="let item of listProducts">
+           <ion-row>
+            <ion-col>
+              <ion-item-sliding>
+                <ion-item (click)="toggleItem(item)" class="row-completed">
+                  <ion-thumbnail item-left>
+                      <img src="{{item.imageSrc}}">
+                  </ion-thumbnail>
+                  <h5>
+                    {{item.name}}
+                  </h5>
+                  <p>{{item.brand}}</p>
+                  <ion-icon name="trash" item-right></ion-icon>
+                </ion-item>
+              </ion-item-sliding>
+            </ion-col> 
+           </ion-row>
+           <ion-row class="align-items-flex-end">
+             <ion-col></ion-col>
+             <ion-col>
+               <ion-item>
+                 <h2 class="royal">$ {{item.price}}</h2>
+               </ion-item>
+             </ion-col>
+             <ion-col>
+                <ion-item>
+                    <ion-label>Cantidad: x</ion-label>
+                    <ion-select>
+                      <ion-option>1</ion-option>
+                      <ion-option>2</ion-option>
+                      <ion-option>3</ion-option>
+                      <ion-option>4</ion-option>
+                      <ion-option>5</ion-option>                      
+                    </ion-select>
+                  </ion-item>
+             </ion-col>
+           </ion-row>
+            <div style="height:1px;width:100%;background-color:#DDDDDD"></div>
+          </div>
+      
+        </ion-list>
 
   </ion-card>
+  <ion-card>
+      <ion-row>
+        <ion-col>
+          <ion-icon style="font-size: 2em" float-left name="card"></ion-icon>
+          <p style="text-align: center;" float-right>ADICIONAR UN CUPON O VALE</p>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card>
+        <ion-row>
+          <ion-col>
+            <ion-icon style="font-size: 2em" float-left name="calculator"></ion-icon>
+            <p style="text-align: center;" float-right>CALCULAR ENVIO</p>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+  
+  <ion-card>
+    <ion-list no-lines *ngIf="listProducts">
+      <div *ngFor="let item of listProducts">
+        <ion-card-header>
+          Resumen del Pedido:
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row>
+            <ion-col>
+              <p float-left>{{item.name}}</p>
+            </ion-col>
+            <ion-col>
+              <div float-right>$ {{item.price}}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p float-left>Envio</p>
+            </ion-col>
+            <ion-col>
+              <div float-right>a Calcular</div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="lineaTotal"></ion-row>
+          <ion-row>
+              <ion-col>
+                <h2 float-left>Total</h2>
+              </ion-col>
+              <ion-col>
+                <h2 float-right>$ {{item.price}}</h2>
+              </ion-col>
+            </ion-row>
+        </ion-card-content>
+      </div>
+    </ion-list>
+  </ion-card>
 
-  <ion-list>
-    <ion-item-sliding>
+  <!-- <ion-list>
       <ion-item *ngFor="let item of listProducts" (click)="goToProduct(item)">
-        <ion-thumbnail item-start>
-          <img src="img/thumbnail-totoro.png">
-        </ion-thumbnail>
-        <h2>{{item.name}}</h2>
+        <ion-card>
+          <ion-item>
+            <ion-row>
+              <ion-col>
+                <ion-thumbnail item-start>
+                  <img src="{{item.imageSrc}}">
+                </ion-thumbnail>
+              </ion-col>
+              <ion-col>
+                <ion-card-header>
+                  <div>{{item.name}}</div>
+                </ion-card-header>
+              </ion-col>
+              <ion-col>
+                <ion-icon float-right name="trash"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-card>
       </ion-item>
       <ion-item-options side="left">
         <button ion-button color="danger">
@@ -45,9 +140,10 @@
           Borrar
         </button>
       </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-  <ion-toolbar style="position: absolute; bottom: 0px; width: 100%">
-		<button ion-button full>COMRPAR</button>
-	</ion-toolbar>
+  </ion-list> -->
 </ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <button ion-button full color="button">COMRPAR</button>
+      </ion-toolbar>
+</ion-footer>

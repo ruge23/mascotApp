@@ -1,22 +1,26 @@
-
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>favorites</ion-title>
-  </ion-navbar>
-
-</ion-header>
+    <ion-navbar style="max-height: 56px !important;" color="royal" >
+      <ion-title>
+        Favoritos
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
 
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of listProducts" (click)="goToProduct(item)">
+    <ion-item *ngFor="let item of products" (click)="goToProduct(item)">
       <ion-thumbnail item-start>
-        <img src="img/thumbnail-totoro.png">
+        <img src="{{item.imageSrc}}">
       </ion-thumbnail>
       <h2>{{item.name}}</h2>
       <p>{{item.brand}}</p>
-      <button ion-button clear item-end>Ver</button>
+      <button ion-button clear item-end> ${{item.price}}</button>
     </ion-item>
   </ion-list>
 </ion-content>

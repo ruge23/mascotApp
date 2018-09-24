@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { ShopCartPage } from '../shop-cart/shop-cart';
 import { Storage } from '@ionic/storage';
 
@@ -14,7 +15,10 @@ export class InternaProductPage {
   public detailProduct: any;
   private listProducts: any[];
   private listPendings: any[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public alertCtrl: AlertController, 
+    private storage: Storage) {
     this.detailProduct = this.navParams.data;
   }
 
@@ -22,11 +26,17 @@ export class InternaProductPage {
     console.log('ionViewDidLoad InternaProductPage');
   }
 
-asfasf(){
-  console.log("asfs");
+addProduct_cart(){
+  const alert = this.alertCtrl.create({
+    title: 'New Product Add!',
+    subTitle: 'Producto agregado al carrito de compras!',
+    buttons: ['OK']
+  });
+  alert.present();
 }
 
   goToComprar(product) {
+    this.addProduct_cart();
     //agregar a la lista del carrito
    console.log("add product");
     this.listProducts = [];

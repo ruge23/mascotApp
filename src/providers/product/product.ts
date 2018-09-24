@@ -17,8 +17,8 @@ export class ProductProvider {
     /*  this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all.php")
                      .map(this.extractData); */
       return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all.php")
-      .pipe(tap(response => response["data"]));
-  }
+        .pipe(tap(response => response["data"]));
+    }
 
 
 

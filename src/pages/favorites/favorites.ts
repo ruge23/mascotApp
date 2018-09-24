@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProductProvider } from '../../providers/product/product';
+
 import { InternaProductPage } from '../interna-product/interna-product';
 
 @IonicPage()
@@ -9,25 +11,17 @@ import { InternaProductPage } from '../interna-product/interna-product';
 })
 export class FavoritesPage {
 
-  public listProducts: any;
+  products : any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.listProducts = [{
-      name: "Eukanuba 20kg",
-      brand: "Eukanuba"
-    },{
-      name: "Dogui 20kg",
-      brand: "American"
-    },{
-      name: "Chachacha 20kg",
-      brand: "Clanson"
-    },{
-      name: "DogChow 20kg",
-      brand: "American"
-    },];
+  constructor(public navCtrl: NavController, public navParams: NavParams, private productProvider: ProductProvider) {
+    this.getProducts();
   }
 
-
+  getProducts(){
+    this.productProvider.getProducts().subscribe(
+      products => {console.log('a',products['data']),this.products =products['data']}
+    )
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavoritesPage');

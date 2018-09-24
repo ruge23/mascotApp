@@ -34,12 +34,12 @@
             </ion-col>
            </ion-badge>
         <ion-col>
-          <h2>{{detailProduct.name}}</h2>
+          <h2>{{detailProduct.name}}</h2> - <h2>{{detailProduct.brand}}</h2>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <img src="{{detailProduct.img}}" alt="Image Product">
+          <img src="{{detailProduct.imageSrc}}" alt="Image Product">
         </ion-col>
       </ion-row>
       <ion-row>
@@ -49,6 +49,13 @@
         <ion-col>
           <ion-icon float-right name="heart"></ion-icon>
         </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-badge color="light">
+          <ion-col>
+            <h2 class="price">$ {{detailProduct.price}}</h2>
+          </ion-col>
+        </ion-badge>
       </ion-row>
     </ion-grid>
   </ion-item>

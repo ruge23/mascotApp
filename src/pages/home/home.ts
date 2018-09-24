@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides } from 'ionic-angular';
 
-import { PRODUCTS } from './../../data/product-mok';
+//import { PRODUCTS } from './../../data/product-mok';
 import { MARCAS } from './../../data/marcas-mok';
 import { InternaProductPage } from '../interna-product/interna-product';
 import { SLIDES } from '../../data/slides-mok';
@@ -16,16 +16,14 @@ export class HomePage {
   private productList: any[];
   private caca: any[];
   images : any = SLIDES;
-  products : any = PRODUCTS;
+  products : any[];
   marcas : any = MARCAS;
   errorMessage: string;
 
 
   constructor(public navCtrl: NavController,private productProvider: ProductProvider ) {
-    this.products = productProvider.getProducts().subscribe(
-      products => console.log(products.data)
-    );
-  }
+    this.getProducts();
+   }
 
   goToInterna(product){
     this.navCtrl.push(InternaProductPage, product);
@@ -39,5 +37,10 @@ export class HomePage {
     this.slides.slidePrev();
   }
 
+  getProducts(){
+    this.productProvider.getProducts().subscribe(
+      products => {console.log('a',products['data']),this.products =products['data']}
+    )
+  }
 
 }

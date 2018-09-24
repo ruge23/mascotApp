@@ -33499,6 +33499,10 @@ page-interna-product div h3 {
   color: #bd05dd;
 }
 
+page-interna-product h2.price {
+  color: #bd05dd;
+}
+
 page-login .scroll-content {
   background: -webkit-gradient(linear, left top, left bottom, from(#108ccc), to(#bd05dd));
   background: linear-gradient(to bottom, #108ccc 0%, #bd05dd 100%);
@@ -33545,4 +33549,27 @@ page-modal .vertical-align-content > * {
   -webkit-align-items: center !important;
   -ms-flex-align: center !important;
   align-items: center !important;
+}
+
+page-shop-cart .completed {
+  text-decoration: line-through;
+}
+
+page-shop-cart .row-completed {
+  background-color: #F0F0F0;
+}
+
+page-shop-cart .royal {
+  color: #d61755;
+}
+
+page-shop-cart .align-items-flex-end {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+
+page-shop-cart .lineaTotal {
+  border-bottom: 1px solid #f4f4f4;
 }

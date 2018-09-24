@@ -11,4 +11,8 @@ page-interna-product {
     div h3{
         color: map-get($colors, royal);
     }
+
+    h2.price{
+        color: map-get($colors, royal);
+    }
 }
