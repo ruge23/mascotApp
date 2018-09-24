@@ -20,6 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { ShopCartPage } from '../pages/shop-cart/shop-cart';
+import { ProductProvider } from '../providers/product/product';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ShopCartPage } from '../pages/shop-cart/shop-cart';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    ProductProvider
   ]
 })
 export class AppModule {}

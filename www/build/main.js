@@ -272,7 +272,7 @@ var ShopCartPage = /** @class */ (function () {
     };
     ShopCartPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-shop-cart',template:/*ion-inline-start:"C:\xampp\htdocs\mascotasya\app\mascotApp\src\pages\shop-cart\shop-cart.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>shop-cart</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-card>\n    <ion-item>\n      <ion-icon name="football" item-start large></ion-icon>\n      <h2>Museum of Football</h2>\n      <p>11 N. Way St, Madison, WI 53703</p>\n    </ion-item>\n\n    <ion-item>\n      <ion-icon name="wine" item-start large></ion-icon>\n      <h2>Institute of Fine Cocktails</h2>\n      <p>14 S. Hop Avenue, Madison, WI 53703</p>\n    </ion-item>\n\n    <ion-item>\n      <span item-start>18 min</span>\n      <span item-start>(2.6 mi)</span>\n      <button ion-button icon-start clear item-end>\n        <ion-icon name="navigate"></ion-icon>\n        Start\n      </button>\n    </ion-item>\n\n  </ion-card>\n\n  <ion-list>\n    <ion-item-sliding>\n      <ion-item *ngFor="let item of listProducts" (click)="goToProduct(item)">\n        <ion-thumbnail item-start>\n          <img src="img/thumbnail-totoro.png">\n        </ion-thumbnail>\n        <h2>{{item.name}}</h2>\n      </ion-item>\n      <ion-item-options side="left">\n        <button ion-button color="danger">\n          <ion-icon name="text"></ion-icon>\n          Borrar\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\mascotasya\app\mascotApp\src\pages\shop-cart\shop-cart.html"*/,
+            selector: 'page-shop-cart',template:/*ion-inline-start:"C:\xampp\htdocs\mascotasya\app\mascotApp\src\pages\shop-cart\shop-cart.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>shop-cart</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-card>\n    <ion-item>\n      <ion-icon ios="logo-usd" md="logo-usd" item-start large></ion-icon>\n      <h2>12.45</h2>\n    </ion-item>\n\n    <ion-item>\n      <ion-icon ios="ios-compass" md="md-compass" item-start large></ion-icon>\n      <h2>14 S. Hop Avenue, Madison, WI 53703</h2>\n  \n    </ion-item>\n\n   <!--  <ion-item>\n      <span item-start>18 min</span>\n      <span item-start>(2.6 mi)</span>\n      <button ion-button icon-start clear item-end>\n        <ion-icon name="navigate"></ion-icon>\n        Start\n      </button>\n    </ion-item> -->\n\n  </ion-card>\n\n  <ion-list>\n    <ion-item-sliding>\n      <ion-item *ngFor="let item of listProducts" (click)="goToProduct(item)">\n        <ion-thumbnail item-start>\n          <img src="img/thumbnail-totoro.png">\n        </ion-thumbnail>\n        <h2>{{item.name}}</h2>\n      </ion-item>\n      <ion-item-options side="left">\n        <button ion-button color="danger">\n          <ion-icon name="text"></ion-icon>\n          Borrar\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n  <ion-toolbar style="position: absolute; bottom: 0px; width: 100%">\n		<button ion-button full>COMRPAR</button>\n	</ion-toolbar>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\mascotasya\app\mascotApp\src\pages\shop-cart\shop-cart.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
     ], ShopCartPage);
@@ -357,11 +357,11 @@ webpackEmptyAsyncContext.id = 116;
 
 var map = {
 	"../pages/favorites/favorites.module": [
-		288,
+		287,
 		6
 	],
 	"../pages/interna-product/interna-product.module": [
-		287,
+		288,
 		5
 	],
 	"../pages/login/login.module": [
@@ -373,15 +373,15 @@ var map = {
 		3
 	],
 	"../pages/modal/modal.module": [
-		293,
+		291,
 		2
 	],
 	"../pages/pendientes/pendientes.module": [
-		291,
+		292,
 		1
 	],
 	"../pages/shop-cart/shop-cart.module": [
-		292,
+		293,
 		0
 	]
 };
@@ -651,13 +651,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/interna-product/interna-product.module#InternaProductPageModule', name: 'InternaProductPage', segment: 'interna-product', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/favorites/favorites.module#FavoritesPageModule', name: 'FavoritesPage', segment: 'favorites', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/interna-product/interna-product.module#InternaProductPageModule', name: 'InternaProductPage', segment: 'interna-product', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mas/mas.module#MasPageModule', name: 'MasPage', segment: 'mas', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/modal/modal.module#ModalPageModule', name: 'ModalPage', segment: 'modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pendientes/pendientes.module#PendientesPageModule', name: 'PendientesPage', segment: 'pendientes', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/shop-cart/shop-cart.module#ShopCartPageModule', name: 'ShopCartPage', segment: 'shop-cart', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/modal/modal.module#ModalPageModule', name: 'ModalPage', segment: 'modal', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/shop-cart/shop-cart.module#ShopCartPageModule', name: 'ShopCartPage', segment: 'shop-cart', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -1036,10 +1036,9 @@ var InternaProductPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-interna-product',template:/*ion-inline-start:"C:\xampp\htdocs\mascotasya\app\mascotApp\src\pages\interna-product\interna-product.html"*/'<ion-header>\n\n\n\n  <ion-navbar color="royal">\n\n    <ion-title>Detalles</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="share"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-item>\n\n    <!-- <ion-badge color="secondary"></ion-badge> -->\n\n    <ion-grid text-center>\n\n        <ion-row wrap>\n\n            <ion-badge color="light">\n\n            <ion-col>\n\n              <div float-left style="width: 110px; text-align: center; padding-top: 15px;">\n\n                <h3>Gane 10% OFF</h3>\n\n                <p>En tu primer compra</p>\n\n              </div>\n\n            </ion-col>\n\n            <ion-col>\n\n              <button ion-button float-right color="royal">Apply Cupon</button>\n\n            </ion-col>\n\n           </ion-badge>\n\n        <ion-col>\n\n          <h2>{{detailProduct.name}}</h2>\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col>\n\n          <img src="{{detailProduct.img}}" alt="Image Product">\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col>\n\n          <ion-icon float-left name="expand"></ion-icon>\n\n        </ion-col>\n\n        <ion-col>\n\n          <ion-icon float-right name="heart"></ion-icon>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label>Cantidad</ion-label>\n\n    <ion-select [(ngModel)]="toppings" okText="Okay" cancelText="Dismiss">\n\n      <ion-option>\n\n        <ion-row>\n\n          <ion-col>\n\n            <div float-left>7 Unidades</div>\n\n          </ion-col>\n\n          <ion-col>\n\n            <div float-right>$400</div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-option>\n\n      <ion-option>\n\n        <ion-row>\n\n          <ion-col>\n\n            <div float-left>14 Unidades</div>\n\n          </ion-col>\n\n          <ion-col>\n\n            <div float-right>$900</div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-option>\n\n      <ion-option>\n\n          <ion-row>\n\n              <ion-col>\n\n                <div float-left>21 Unidades</div>\n\n              </ion-col>\n\n              <ion-col>\n\n                <div float-right>$1200</div>\n\n              </ion-col>\n\n            </ion-row>\n\n      </ion-option>\n\n      <ion-option>\n\n          <ion-row>\n\n              <ion-col>\n\n                <div float-left>28 Unidades</div>\n\n              </ion-col>\n\n              <ion-col>\n\n                <div float-right>$2500</div>\n\n              </ion-col>\n\n            </ion-row>\n\n      </ion-option>\n\n    </ion-select>\n\n  </ion-item>\n\n  <ion-list>\n\n    <accordion></accordion>\n\n    <accordion></accordion>\n\n    <accordion></accordion>    \n\n  </ion-list>\n\n</ion-content>\n\n<ion-footer>\n\n    <ion-toolbar>\n\n      <ion-buttons left>\n\n        <button ion-button solid small color="primary" (click)="goToPending(detailProduct)">\n\n            <ion-col>\n\n              <ion-icon float-left name="mascotapp-pendientes"></ion-icon>\n\n            </ion-col>\n\n            <ion-col>\n\n              <div float-right style="font-size: 1rem;">Agregar a Pendientes</div>\n\n            </ion-col>\n\n        </button>\n\n      </ion-buttons>\n\n      <ion-buttons right>\n\n        <button ion-button solid small color="button" (click)="goToComprar(detailProduct)">\n\n            <ion-col>\n\n                <ion-icon float-left name="mascotapp-carrito"></ion-icon>\n\n              </ion-col>\n\n              <ion-col>\n\n                <div float-right style="font-size: 1rem;" >Agregar al carrito</div>\n\n              </ion-col>\n\n        </button>\n\n      </ion-buttons>\n\n  \n\n    </ion-toolbar>\n\n  </ion-footer>'/*ion-inline-end:"C:\xampp\htdocs\mascotasya\app\mascotApp\src\pages\interna-product\interna-product.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
     ], InternaProductPage);
     return InternaProductPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=interna-product.js.map
