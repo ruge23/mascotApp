@@ -21,6 +21,8 @@ import { AuthProvider } from '../providers/auth/auth';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { ShopCartPage } from '../pages/shop-cart/shop-cart';
 import { ProductProvider } from '../providers/product/product';
+import { HttpModule } from '@angular/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ProductProvider } from '../providers/product/product';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),    
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -46,7 +46,7 @@
     <ion-slides style="height: 230px !important;" *ngIf="products" loop="true" slidesPerView="2.5">
       <ion-slide *ngFor="let product of products">
         <ion-card class="cardProduct" (click)="goToInterna(product)">
-          <img class="imgProduct" src="{{product.img}}" alt="Product Image">
+          <img class="imgProduct" src="{{product.imageSrc}}" alt="Product Image">
           <ion-card-title>
               <p>Ranking</p>
           </ion-card-title>
@@ -88,7 +88,7 @@
       <ion-slides style="height: 230px !important;" *ngIf="products" loop="true" slidesPerView="2.5">
         <ion-slide *ngFor="let product of products">
           <ion-card class="cardProduct" (click)="goToInterna(product)">
-            <img class="imgProduct" src="{{product.img}}" alt="Product Image">
+            <img class="imgProduct" src="{{product.imageSrc}}" alt="Product Image">
               <ion-card-title>
                 Ranking
               </ion-card-title>
