@@ -1,17 +1,28 @@
 page-home {
-
+    /* div.slide-zoom{
+        height: 220px;
+    } */
     .slideBanner{
-        height: 170px !important;
+        height: 205px;
     }
-
     .banner{
         background-size: cover;
     }
-    ion-fab.cc{
-        position: fixed;
-    }
+    .fixed{ 
+        position: fixed; 
+    } 
+    .button-fab {
+         z-index: 100; 
+        }
     ion-fab[middle]{
         margin-top: -90px !important;
+    }
+    ion-badge.badge.comprar{
+        width: 86px;
+        height: 36px;
+    }
+    .fab{
+        border-radius: 2px !important;
     }
 
     button.slidebutton{
@@ -25,6 +36,7 @@ page-home {
     .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets{
         background-color: #8560b3;
         bottom: 0px;
+
     }
 
     .swiper-pagination-bullet-active{
@@ -54,8 +66,8 @@ page-home {
     ion-card ion-card-contet.marcasContent{
         height: 100px !important;
     }
-    ion-card.card.cardProduct{
-        width: 100px !important;
+    ion-card.cardProduct{
+        width: 120px !important;
         padding-bottom: 0px !important;
     }
 
@@ -70,9 +82,16 @@ page-home {
         width: 100px;
         height: 100px;
         background-size: cover;
+        margin: 8px auto;
     }
 
     .buyProduct{
-        width: 80px;
+        height: 30px;
+        width: 90px;
+        font-size: 1em;
+    }
+
+    .slidebutton{
+        color: map-get($colors, button )
     }
 }

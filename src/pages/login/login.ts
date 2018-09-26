@@ -12,8 +12,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 export class LoginPage {
 
   user = {
-    name: 'user',
-    pw: 'user'
+    name: '',
+    pw: ''
   }
 
   constructor(
@@ -35,8 +35,8 @@ export class LoginPage {
           this.navCtrl.setRoot(TabsPage);
         }else{
           let alert = this.alertCtrl.create({
-            title: 'Login Failed',
-            message: 'Please check your credentials',
+            title: 'Ingreso fallido!',
+            message: 'Por favor verifica tu usuario o contraseña',
             buttons: ['OK']
           });
           alert.present();

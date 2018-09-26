@@ -1,18 +1,33 @@
 <ion-content padding>
-  <ion-list class="vertical-align-content">
-    <ion-item class="top">
-      <img src="../../assets/imgs/elementos/logo/logo-corto.png">
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="user.pw"></ion-input>
-    </ion-item>
-    <ion-item class="botton" style="align-items: center !important;">
-      <button ion-button full (click)="loginUser()" color="royal">Entrar</button>
-    </ion-item>  
-  </ion-list>
+  <div class="content"></div>
+    <ion-list>
+      <ion-item no-lines class="top">
+          <ion-col>
+            <ion-icon float-right name="close" color="primary" style="font-size: 1.5em;"></ion-icon>
+          </ion-col>
+        <ion-row style="text-align: center;">
+          <ion-col>
+            <img class="imgLogo" src="../../assets/imgs/elementos/logo/logo-corto.png">
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item class="email">
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="user.pw"></ion-input>
+      </ion-item>
+      <ion-item no-lines style="text-align: center !important;">
+        <button ion-button (click)="loginUser()" color="royal">Entrar</button>
+      </ion-item>
+      <ion-item class="botton">
+        <ion-row>
+          <ion-col style="text-align: center;">
+            <p>Olvidaste tu contraseña?</p>
+          </ion-col>
+        </ion-row>  
+      </ion-item>
+    </ion-list>
 </ion-content>

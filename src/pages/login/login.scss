@@ -1,16 +1,42 @@
 page-login {
     .scroll-content{
-        background: linear-gradient(to bottom, #108ccc  0%, #bd05dd 100%);
+        background: linear-gradient(to bottom, #108ccc  0%, #bd05dd 100%);        
     }
 
-    .vertical-align-content > *
-    {
-        display: flex!important;
-        align-content: center!important;
-        align-items: center!important;
+    div.content{
+        height: 50px;
     }
+
+    .imgLogo{
+        max-width: 65% !important;
+    }
+
+    .item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .list .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .list .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+        box-shadow: none;
+      }
+      
+      .item.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .list .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
 
     ion-item.top{
+        height: 180px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
@@ -18,5 +44,14 @@ page-login {
     ion-item.botton{
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
+    }
+    
+    button{
+        text-align: center;
+        width: 190px !important;
+        height: 50px !important;
+    }
+    .button-inner{
+        font-size: 1.5em;
     }
 }

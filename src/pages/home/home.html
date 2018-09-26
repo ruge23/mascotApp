@@ -1,23 +1,34 @@
 <ion-header>
-  <ion-navbar style="max-height: 56px !important;" color="royal" >
-    <ion-title>
-      <img src="../../assets/imgs/elementos/logo/logo-blanco.png">
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-buttons>
+  <ion-navbar color="royal" >
+      <ion-col>
+        <ion-buttons float-left>
+          <button ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+        <img float-rigth height="35px" src="../../assets/imgs/elementos/logo/logo-blanco.png">
+      </ion-col>
+        <ion-buttons end>
+          <button ion-button icon-only>
+            <ion-icon name="search"></ion-icon>
+          </button>
+        </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-<!--   <ion-fab class="cc" right middle>
-    <button class="slidebutton">
-      <ion-badge class="buttonSlide" color="button">Comprar</ion-badge>
-    </button>
-  </ion-fab> -->
-  <ion-slides style="height: 200px !important;" *ngIf="images"  autoplay="5000" loop="true" speed="500" class="slides" pager="true">
+  <ion-fab style="right: 50px !important;" class="cc" right middle>
+    <ion-badge class="comprar" ion-fab fab-fixed color="button">
+      Comprar
+    </ion-badge>
+    <ion-fab-list>
+        <button ion-fab><ion-icon name="mascotapp-carrito"></ion-icon></button>
+        <button ion-fab><ion-icon name="mascotapp-favoritos"></ion-icon></button>
+        <button ion-fab><ion-icon name="mascotapp-home"></ion-icon></button>
+        <button ion-fab><ion-icon name="mascotapp-pendientes"></ion-icon></button>
+      </ion-fab-list>
+  </ion-fab>
+  <ion-slides style="height: 215px !important;" *ngIf="images"  autoplay="5000" loop="true" speed="500" class="slides" pager="true">
     <ion-slide class="slideBanner" *ngFor="let image of images">
       <img class="banner" src="{{image.img}}" alt="Product Image">
     </ion-slide>
@@ -31,13 +42,13 @@
        <ion-row wrap>
            <ion-badge class="apply" color="light">
            <ion-col>
-             <div float-left style="width: 110px; text-align: center; padding-top: 15px;">
-               <h3>Gane 10% OFF</h3>
+             <div float-left style="width: 105px; text-align: center; padding-top: 18px;">
+               <h3>GANE 10% OFF</h3>
                <p>En tu primer compra</p>
              </div>
            </ion-col>
            <ion-col>
-             <button ion-button float-right color="royal">Apply Cupon</button>
+             <button style="height: 35px;" ion-button float-right color="royal">Aplicar Cupón</button>
            </ion-col>
           </ion-badge>
          </ion-row>

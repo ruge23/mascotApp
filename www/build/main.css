@@ -33399,20 +33399,39 @@ accordion .card-content {
   max-height: 0px;
 }
 
+page-home {
+  /* div.slide-zoom{
+        height: 220px;
+    } */
+}
+
 page-home .slideBanner {
-  height: 170px !important;
+  height: 205px;
 }
 
 page-home .banner {
   background-size: cover;
 }
 
-page-home ion-fab.cc {
+page-home .fixed {
   position: fixed;
+}
+
+page-home .button-fab {
+  z-index: 100;
 }
 
 page-home ion-fab[middle] {
   margin-top: -90px !important;
+}
+
+page-home ion-badge.badge.comprar {
+  width: 86px;
+  height: 36px;
+}
+
+page-home .fab {
+  border-radius: 2px !important;
 }
 
 page-home button.slidebutton {
@@ -33460,8 +33479,8 @@ page-home ion-card ion-card-contet.marcasContent {
   height: 100px !important;
 }
 
-page-home ion-card.card.cardProduct {
-  width: 100px !important;
+page-home ion-card.cardProduct {
+  width: 120px !important;
   padding-bottom: 0px !important;
 }
 
@@ -33477,10 +33496,17 @@ page-home .imgProduct {
   width: 100px;
   height: 100px;
   background-size: cover;
+  margin: 8px auto;
 }
 
 page-home .buyProduct {
-  width: 80px;
+  height: 30px;
+  width: 90px;
+  font-size: 1em;
+}
+
+page-home .slidebutton {
+  color: #22c064;
 }
 
 page-interna-product ion-badge {
@@ -33508,21 +33534,45 @@ page-login .scroll-content {
   background: linear-gradient(to bottom, #108ccc 0%, #bd05dd 100%);
 }
 
-page-login .vertical-align-content > * {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-align-content: center !important;
-  -ms-flex-line-pack: center !important;
-  align-content: center !important;
-  -webkit-box-align: center !important;
-  -webkit-align-items: center !important;
-  -ms-flex-align: center !important;
-  align-items: center !important;
+page-login div.content {
+  height: 50px;
+}
+
+page-login .imgLogo {
+  max-width: 65% !important;
+}
+
+page-login .item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-login .list .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+  border-bottom-color: transparent !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-login .list .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-login .item.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-login .list .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+  border-bottom-color: transparent !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 page-login ion-item.top {
+  height: 180px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
@@ -33530,6 +33580,16 @@ page-login ion-item.top {
 page-login ion-item.botton {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+page-login button {
+  text-align: center;
+  width: 190px !important;
+  height: 50px !important;
+}
+
+page-login .button-inner {
+  font-size: 1.5em;
 }
 
 page-modal .scroll-content {
@@ -33549,6 +33609,19 @@ page-modal .vertical-align-content > * {
   -webkit-align-items: center !important;
   -ms-flex-align: center !important;
   align-items: center !important;
+}
+
+page-modal .img1 {
+  max-width: 80% !important;
+}
+
+page-modal .img2 {
+  max-width: 60% !important;
+}
+
+page-modal img.img3 {
+  height: 31px !important;
+  width: 32px !important;
 }
 
 page-shop-cart .completed {
