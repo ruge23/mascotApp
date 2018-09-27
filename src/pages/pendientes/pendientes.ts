@@ -10,11 +10,14 @@ import { InternaProductPage } from '../interna-product/interna-product';
 })
 export class PendientesPage {
 
-  public listProducts: any[];
+  public listProducts: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  
+  }
+  ionViewWillEnter(){
     if (this.storage.get("pending-list")) {
-      storage.get('pending-list').then((val) => {
-        this.listProducts = val;
+      this.storage.get('pending-list').then((val) => {
+        this.listProducts = JSON.parse(val);
       });
     }
   }

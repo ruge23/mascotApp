@@ -12,26 +12,30 @@
   </ion-header>
 
 <ion-content>
-    <ion-card>
-        <ion-list no-lines *ngIf="listProducts">
-           <div *ngFor="let item of listProducts">
-             <ion-row>
-              <ion-col>
-                <ion-item-sliding>
-                  <ion-item (click)="toggleItem(item)" class="row-completed">
-                    <ion-thumbnail item-left>
-                        <img src="{{item.imageSrc}}">
-                    </ion-thumbnail>
-                    <h5>
-                      {{item.name}}
-                    </h5>
-                    <p>{{item.brand}}</p>
-                    <ion-icon name="trash" item-right></ion-icon>
-                  </ion-item>
-                </ion-item-sliding>
-              </ion-col> 
-             </ion-row>
-            </div>
-          </ion-list>
-        </ion-card>
+  <ion-card>
+    <ion-list no-lines *ngIf="listProducts">
+       <div *ngFor="let item of listProducts">
+         <ion-row>
+          <ion-col>
+            <ion-item-sliding>
+              <ion-item (click)="toggleItem(item)" class="row-completed">
+                <ion-thumbnail item-left>
+                    <img src="{{item.imageSrc}}">
+                </ion-thumbnail>
+                <h5>
+                  {{item.name}}
+                </h5>
+                <p>{{item.brand}}</p>
+                <ion-icon name="trash" item-right></ion-icon>
+              </ion-item>
+            </ion-item-sliding>
+          </ion-col> 
+         </ion-row>
+        
+          <div style="height:1px;width:100%;background-color:#DDDDDD"></div>
+        </div>
+    
+      </ion-list>
+
+</ion-card>
 </ion-content>

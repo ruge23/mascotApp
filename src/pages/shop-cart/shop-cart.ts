@@ -18,18 +18,25 @@ import { Storage } from '@ionic/storage';
 export class ShopCartPage {
   public listProducts: any[];
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+
+  }
+
+  ionViewWillEnter(){
     if (this.storage.get("product-list")) {
-      storage.get('product-list').then((val) => {
+      console.log("entro al if de shop");
+      this.storage.get('product-list').then((val) => {
         this.listProducts = val;
+        console.log(this.listProducts);
       });
     }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShopCartPage');
+
   }
 
-  goToProduct(product){
+  goToProduct(product) {
     this.navCtrl.push(InternaProductPage, product);
   }
 

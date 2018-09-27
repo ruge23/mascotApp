@@ -22,4 +22,7 @@ export class TabsPage {
   constructor() {
 
   }
+  onShopCart(){
+    
+  }
 }

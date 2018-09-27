@@ -21,4 +21,7 @@ page-shop-cart {
     .lineaTotal{
         border-bottom: 1px solid map-get($colors, light)
     }
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+        color: rgb(189, 5, 221)!important;
+    }
 }

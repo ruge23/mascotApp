@@ -94,4 +94,7 @@ page-home {
     .slidebutton{
         color: map-get($colors, button )
     }
+    page-home .slideBanner {
+        height: 221px!important;
+    }
 }

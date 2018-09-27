@@ -33389,6 +33389,10 @@ ion-icon[class*="mascotapp-mas"] {
   mask-image: url("../assets/imgs/elementos/iconos menu footer fix/mas.svg");
 }
 
+page-home .slideBanner {
+  height: 221px !important;
+}
+
 accordion .card-header {
   background-color: #bd05dd;
   color: #fff;
@@ -33507,6 +33511,10 @@ page-home .buyProduct {
 
 page-home .slidebutton {
   color: #22c064;
+}
+
+page-home page-home .slideBanner {
+  height: 221px !important;
 }
 
 page-interna-product ion-badge {
@@ -33645,4 +33653,8 @@ page-shop-cart .align-items-flex-end {
 
 page-shop-cart .lineaTotal {
   border-bottom: 1px solid #f4f4f4;
+}
+
+page-shop-cart .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+  color: #bd05dd !important;
 }
