@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="royal">
+    <ion-title>
+      Consultas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-label floating>Titutlo</ion-label>
+        <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Tipo</ion-label>        
+        <ion-select [(ngModel)]="todo.tipo" name="tipo">
+          <ion-option value="reclamo">Reclamo</ion-option>
+          <ion-option value="consulta">Consulta</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Descripcion</ion-label>
+        <ion-textarea [(ngModel)]="todo.description" name="description"></ion-textarea>
+      </ion-item>
+      <button ion-button type="submit" full>Enviar</button>
+    </form>
+  </ion-card>
+</ion-content>

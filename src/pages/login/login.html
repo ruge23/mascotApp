@@ -2,17 +2,15 @@
   <div class="content"></div>
     <ion-list>
       <ion-item no-lines class="top">
+        <ion-row style="text-align: center;"> 
           <ion-col>
-            <ion-icon float-right name="close" color="primary" style="font-size: 1.5em;"></ion-icon>
-          </ion-col>
-        <ion-row style="text-align: center;">
-          <ion-col>
+            <ion-icon float-right name="close" color="primary" style="margin-top: 30px; font-size: 1.5em;"></ion-icon>
             <img class="imgLogo" src="../../assets/imgs/elementos/logo/logo-corto.png">
           </ion-col>
         </ion-row>
       </ion-item>
-      <ion-item class="email">
-        <ion-label floating>Email</ion-label>
+      <ion-item>
+        <ion-label floating>Usuario</ion-label>
         <ion-input type="text" [(ngModel)]="user.name"></ion-input>
       </ion-item>
       <ion-item>
@@ -20,12 +18,24 @@
         <ion-input type="password" [(ngModel)]="user.pw"></ion-input>
       </ion-item>
       <ion-item no-lines style="text-align: center !important;">
-        <button ion-button (click)="loginUser()" color="royal">Entrar</button>
+        <button class="entrar" ion-button (click)="loginUser()" color="royal">Entrar</button>
       </ion-item>
+      <ion-item no-lines style="text-align: center !important;">
+        <p style="font-size: 0.7em;"><strong>Ingresa con:</strong></p>
+        <button style="margin-left: 28px;" class="demas" float-left ion-button icon-start color="facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button style="margin-right: 28px;" class="demas" float-right ion-button icon-start color="google">
+          <ion-icon name="logo-google"></ion-icon>
+        </button>
+      </ion-item>      
       <ion-item class="botton">
         <ion-row>
           <ion-col style="text-align: center;">
-            <p>Olvidaste tu contraseña?</p>
+            <p float-left style="font-size: 0.6em;"><strong>Olvidaste tu contraseña?</strong></p>
+          </ion-col>
+          <ion-col style="text-align: center;" (click)="goToRegister()">
+            <p float-right style="font-size: 0.6em;"><strong>Registrate</strong></p>
           </ion-col>
         </ion-row>  
       </ion-item>

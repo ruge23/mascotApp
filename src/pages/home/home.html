@@ -1,18 +1,24 @@
 <ion-header>
-  <ion-navbar color="royal" >
+  <ion-navbar color="royal">
+    <ion-row>
       <ion-col>
         <ion-buttons float-left>
-          <button ion-button icon-only>
+          <button ion-button icon-only menuToggle>
             <ion-icon name="menu"></ion-icon>
           </button>
         </ion-buttons>
-        <img float-rigth height="35px" src="../../assets/imgs/elementos/logo/logo-blanco.png">
       </ion-col>
-        <ion-buttons end>
+      <!-- <ion-col class="imageHeader"> -->
+        <img style="width: 150px; height: 40px;" src="../../assets/imgs/elementos/logo/logo-blanco.png">
+      <!-- </ion-col> -->
+      <ion-col>
+        <ion-buttons float-right>
           <button ion-button icon-only>
             <ion-icon name="search"></ion-icon>
           </button>
         </ion-buttons>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 
@@ -28,7 +34,7 @@
         <button ion-fab><ion-icon name="mascotapp-pendientes"></ion-icon></button>
       </ion-fab-list>
   </ion-fab>
-  <ion-slides style="height: 247px !important;" *ngIf="images"  autoplay="5000" loop="true" speed="500" class="slides" pager="true">
+  <ion-slides style="height: 219px !important;" *ngIf="images"  autoplay="5000" loop="true" speed="500" class="slides" pager="true">
     <ion-slide class="slideBanner" *ngFor="let image of images">
       <img class="banner" src="{{image.img}}" alt="Product Image">
     </ion-slide>
@@ -54,7 +60,7 @@
          </ion-row>
       </ion-grid>
     </ion-item>
-    <ion-slides style="height: 230px !important;" *ngIf="products" loop="true" slidesPerView="2.5">
+    <ion-slides style="height: 230px !important;" *ngIf="products" loop="false" slidesPerView="2.5">
       <ion-slide *ngFor="let product of products">
         <ion-card class="cardProduct" (click)="goToInterna(product)">
           <img class="imgProduct" src="{{product.imageSrc}}" alt="Product Image">
@@ -86,7 +92,7 @@
         <div class="marcasContent">
           <ion-slides #slides *ngIf="marcas" loop="true" slidesPerView="2">
             <ion-slide *ngFor="let marca of marcas">
-              <img src="{{marca.img}}" alt="Sponsor Image">
+              <img src="{{marca.imageSrc}}" alt="Sponsor Image">
             </ion-slide>
           </ion-slides>
         </div>
@@ -96,7 +102,7 @@
       <ion-card-header>
         OPORTUNIDADES ESPECIALES
       </ion-card-header>
-      <ion-slides style="height: 230px !important;" *ngIf="products" loop="true" slidesPerView="2.5">
+      <ion-slides style="height: 230px !important;" *ngIf="products" loop="false" slidesPerView="2.5">
         <ion-slide *ngFor="let product of products">
           <ion-card class="cardProduct" (click)="goToInterna(product)">
             <img class="imgProduct" src="{{product.imageSrc}}" alt="Product Image">

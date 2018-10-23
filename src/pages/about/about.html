@@ -1,11 +1,51 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-
+  <div class="content"></div>
+    <ion-list>
+      <ion-item no-lines class="top">
+          <ion-col>
+            <ion-icon float-right name="close" color="primary" style="font-size: 1.5em;" (click)="popView()"></ion-icon>
+          </ion-col>
+        <ion-row style="text-align: center;">
+          <ion-col>
+            <img class="imgLogo" src="../../assets/imgs/elementos/logo/logo-corto.png">
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Apellido</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Direccion</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Localidad</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Telefono</ion-label>
+        <ion-input type="tel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Repetir Contraseña</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+      <ion-item class="botton" no-lines style="text-align: center !important;">
+        <button ion-button (click)="registerUser()" color="royal">Guardar</button>
+      </ion-item>
+    </ion-list>
 </ion-content>
+

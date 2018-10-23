@@ -1,14 +1,19 @@
 page-login {
     .scroll-content{
+        overflow: hidden;
         background: linear-gradient(to bottom, #108ccc  0%, #bd05dd 100%);        
     }
 
     div.content{
-        height: 50px;
+        height: 20px;
     }
 
     .imgLogo{
         max-width: 65% !important;
+    }
+
+    ion-list {
+        overflow-y: auto;
     }
 
     .item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
@@ -36,7 +41,7 @@ page-login {
       }
 
     ion-item.top{
-        height: 180px;
+        height: 130px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
@@ -45,13 +50,19 @@ page-login {
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
     }
-    
-    button{
+
+    button.entrar{
         text-align: center;
         width: 190px !important;
         height: 50px !important;
     }
+
+    button.demas{
+        text-align: center;
+        width: 35% !important;
+        height: 50px !important;
+    }
     .button-inner{
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 }

@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { ConsultasPage } from './../pages/consultas/consultas';
 import { LoginPage } from './../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { MasPage } from './../pages/mas/mas';
@@ -14,6 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { InternaProductPage } from './../pages/interna-product/interna-product';
 import { AccordionComponent } from './../components/accordion/accordion';
 import { ModalPage } from './../pages/modal/modal';
+import { MenuPage } from './../pages/menu/menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,12 +24,14 @@ import { ShopCartPage } from '../pages/shop-cart/shop-cart';
 import { ProductProvider } from '../providers/product/product';
 import { HttpModule } from '@angular/http'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FavoriteProvider } from '../providers/favorite/favorite';
+import { ShoppingServiceProvider } from '../providers/shopping-service/shopping-service';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    ConsultasPage,
     HomePage,
     TabsPage,
     LoginPage,
@@ -38,7 +41,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AccordionComponent,
     ModalPage,
     FavoritesPage,
-    ShopCartPage
+    ShopCartPage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    ConsultasPage,
     HomePage,
     TabsPage,
     LoginPage,
@@ -61,14 +65,17 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AccordionComponent,
     ModalPage,
     FavoritesPage,
-    ShopCartPage
+    ShopCartPage,
+    MenuPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    ProductProvider
+    ProductProvider,
+    FavoriteProvider,
+    ShoppingServiceProvider
   ]
 })
 export class AppModule {}

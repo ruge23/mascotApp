@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { InternaProductPage } from '../interna-product/interna-product';
 
@@ -10,16 +10,44 @@ import { InternaProductPage } from '../interna-product/interna-product';
 })
 export class PendientesPage {
 
-  public listProducts: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  _cartPendient= [];
   
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public alertCtrl: AlertController) {
   }
-  ionViewWillEnter(){
-    if (this.storage.get("pending-list")) {
-      this.storage.get('pending-list').then((val) => {
-        this.listProducts = JSON.parse(val);
-      });
+
+  addToPendient(item){
+    this._cartPendient.push(item);
+  }
+
+  removeFromPendient(item) {
+    let index = this._cartPendient.indexOf(item);
+    if (index > -1) {
+      this._cartPendient.splice(index, 1);
     }
+  }
+
+  addToCart(item){
+    this.addToCart_mesaage();
+    this.removeFromPendient(item)
+    this.storage.set('product-list', item);
+  }
+
+  addToCart_mesaage(){
+    const alert = this.alertCtrl.create({
+      title: 'Product Add!',
+      subTitle: 'Producto agregado al Carrito!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  ionViewWillEnter(){
+    this.storage.get('pending-list').then((val) => {
+      if(val != null){
+        this.addToPendient(val);
+        this.storage.set('pending-list', null)
+      }
+    });
   }
 
   ionViewDidLoad() {

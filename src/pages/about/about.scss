@@ -1,3 +1,34 @@
 page-about {
+    .scroll-content{
+        background: linear-gradient(to bottom, #108ccc  0%, #bd05dd 100%);        
+    }
 
+    div.content{
+        height: 20px;
+    }
+
+    .imgLogo{
+        max-width: 65% !important;
+    }
+
+    ion-item.top{
+        height: 180px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    ion-item.botton{
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    button{
+        text-align: center;
+        width: 190px !important;
+        height: 50px !important;
+    }
+    
+    .button-inner{
+        font-size: 1.3em;
+    }
 }

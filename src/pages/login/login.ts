@@ -1,8 +1,10 @@
-import { TabsPage } from './../tabs/tabs';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
+import { AboutPage } from './../about/about';
+import { MenuPage } from './../menu/menu';
+//import { TabsPage } from './../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -32,7 +34,7 @@ export class LoginPage {
     this.authProvider.login(this.user.name, this.user.pw)
       .then(success=>{
         if(success){
-          this.navCtrl.setRoot(TabsPage);
+          this.navCtrl.setRoot(MenuPage);
         }else{
           let alert = this.alertCtrl.create({
             title: 'Ingreso fallido!',
@@ -42,6 +44,10 @@ export class LoginPage {
           alert.present();
         }
       })
+  }
+
+  goToRegister(){
+    this.navCtrl.push(AboutPage);
   }
 
 }

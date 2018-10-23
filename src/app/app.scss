@@ -18,6 +18,13 @@
 // Custom icons
 // Overriding the ion-icon behavior
 // All custom icons will start with "appname-" prefix
+@font-face{
+    font-family: Open;
+    src: url('../assets/fonts/roboto.woff2');
+}
+*{
+    font-family: Open;
+}
 ion-icon {
     &[class*="mascotapp-"] {
         // Instead of using the font-based icons

@@ -5,7 +5,8 @@
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
 
-
+$font-family-md-base: "Open";
+$font-family-ios-base: "Open";
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
@@ -42,6 +43,9 @@ $colors: (
   royal:      #bd05dd,
   button:     #22c064,
   add:        #d61755,
+  facebook:   #3B5998,
+  google:     #D34836,
+  iconMenu:   #8702b3,
 );
 
 
@@ -50,13 +54,13 @@ $colors: (
 // iOS only Sass variables can go here
 
 
-
-
+$tabs-ios-tab-text-color-active: #D30063;
+$tabs-ios-tab-icon-color-active: #D30063;
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
-
+$tabs-md-tab-text-color-active:#D30063;
+$tabs-md-tab-icon-color-active:#D30063;
 
 
 // App Windows Variables

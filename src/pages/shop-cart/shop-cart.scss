@@ -24,4 +24,11 @@ page-shop-cart {
     .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
         color: rgb(189, 5, 221)!important;
     }
+    img{
+        max-width: 100px !important;
+    }
+
+    img.imgPedido{
+        width: 100px !important;
+    }
 }

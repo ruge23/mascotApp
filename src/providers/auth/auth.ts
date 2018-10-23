@@ -17,7 +17,7 @@ export class AuthProvider {
 
   login(name:string, pw:string):Promise<boolean>{
     return new Promise((resolve, reject)=>{
-      if(name === 'user' && pw === 'user'){
+      if(name === 'Lore' && pw === 'user'){
         this.currentUser ={
           name: name,
           role: 0

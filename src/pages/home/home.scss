@@ -2,9 +2,9 @@ page-home {
     /* div.slide-zoom{
         height: 220px;
     } */
-    .slideBanner{
-        height: 205px;
-    }
+    /* .swiper-container.swiper-container-horizontal{
+        height: 219px !important;
+    } */
     .banner{
         background-size: cover;
     }
@@ -94,7 +94,11 @@ page-home {
     .slidebutton{
         color: map-get($colors, button )
     }
-    page-home .slideBanner {
-        height: 221px!important;
+    .slideBanner {
+        height: 207px !important;
+    }
+
+    ion-col.col.imageHeader{
+        padding: 5px 0 !important;
     }
 }

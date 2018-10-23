@@ -11,4 +11,8 @@ export class AboutPage {
 
   }
 
+  popView(){
+    this.navCtrl.pop();
+  }
+
 }

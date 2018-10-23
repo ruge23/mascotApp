@@ -47,7 +47,7 @@
           <ion-icon float-left name="expand"></ion-icon>
         </ion-col>
         <ion-col>
-          <ion-icon float-right name="heart"></ion-icon>
+          <ion-icon float-right [color]="isChecked ? 'danger' : 'dark'" name="heart" name="heart" (click)="addToFavorites(1,detailProduct.id)"></ion-icon>
         </ion-col>
       </ion-row>
       <ion-row>

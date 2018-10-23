@@ -16,10 +16,13 @@ export class ProductProvider {
   getProducts(): any {
     /*  this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all.php")
                      .map(this.extractData); */
-      return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all.php")
-        .pipe(tap(response => response["data"]));
-    }
+    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all-user.php?userid=1")
+      .pipe(tap(response => response["data"]));
+  }
 
-
+  getBrand():any{
+    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/brand-all.php")
+      .pipe(tap(response => response['data']));
+  }
 
 }
