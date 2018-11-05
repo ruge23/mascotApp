@@ -85,16 +85,13 @@ export class ShopCartPage {
     
     let alert = this.alertCtrl.create({
       title:`
-          <img class="imgPedido" src="https://media.istockphoto.com/vectors/flat-round-check-mark-green-icon-button-tick-symbol-isolated-on-white-vector-id691856234?s=170x170">
-          <h6>Tu pedido fue enviado!</h6>
+            <div style="margin: 0 auto; text-align:center; align-items:center;">
+                <img class="imgPedido" src="../../assets/imgs/check.png">
+                <h6>Tu pedido fue enviado!</h6>
+            </div>
           `,
       subTitle: `<strong>Semanas que te dura este pedido?</strong>`,
       inputs: [
-        {
-          type: 'radio',
-          label: '1 semana',
-          value: '1',
-        },
         {
           type: 'radio',
           label: '2 semanas',

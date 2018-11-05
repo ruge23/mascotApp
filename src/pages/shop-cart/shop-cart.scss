@@ -28,7 +28,9 @@ page-shop-cart {
         max-width: 100px !important;
     }
 
-    img.imgPedido{
-        width: 100px !important;
-    }
 }
+        img.imgPedido{
+            height: 100px;
+            display: flex;
+            margin: 0 auto;
+        }

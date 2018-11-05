@@ -23,22 +23,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab style="right: 50px !important;" class="cc" right middle>
-   <!--  <ion-badge class="comprar" ion-fab fab-fixed color="button">
-      Comprar
-    </ion-badge> -->
-    <ion-fab-list>
-        <button ion-fab><ion-icon name="mascotapp-carrito"></ion-icon></button>
-        <button ion-fab><ion-icon name="mascotapp-favoritos"></ion-icon></button>
-        <button ion-fab><ion-icon name="mascotapp-home"></ion-icon></button>
-        <button ion-fab><ion-icon name="mascotapp-pendientes"></ion-icon></button>
-      </ion-fab-list>
-  </ion-fab>
-  <ion-slides style="height: 219px !important;" *ngIf="images"  autoplay="5000" loop="true" speed="500" class="slides" pager="true">
+  <ion-slides style="height: 232px !important;" *ngIf="images"  autoplay="5000" loop="false" speed="500" class="slides" pager="true">
     <ion-slide class="slideBanner" *ngFor="let image of images">
       <img class="banner" src="{{image.img}}" alt="Product Image">
     </ion-slide>
-    </ion-slides>
+  </ion-slides>
    <!--  <ion-fab right bottom>
       <button ion-fab color="add"><ion-icon name="add"></ion-icon></button>
     </ion-fab> -->
@@ -47,12 +36,10 @@
      <ion-grid text-center>
        <ion-row wrap>
            <ion-badge class="apply" color="light">
-           <ion-col>
-             <div float-left style="width: 105px; text-align: center; padding-top: 18px;">
+             <div float-left style="width: 105px; text-align: center;margin-top: 6px;">
                <h3>GANE 10% OFF</h3>
                <p>En tu primer compra</p>
              </div>
-           </ion-col>
            <ion-col>
              <button style="height: 35px;" ion-button float-right color="royal">Aplicar Cupón</button>
            </ion-col>
@@ -76,8 +63,8 @@
         </ion-card>
       </ion-slide>
     </ion-slides>
-    <ion-card>
-      <ion-card-header style="text-align: center; padding-bottom: 0px;">
+    <ion-card style="height: 165px !important;">
+      <ion-card-header style="text-align: center;">
         <ion-col>
           <ion-icon float-left name="arrow-back" class="btnPrev" (click)="prev()"></ion-icon>
         </ion-col>
@@ -90,7 +77,7 @@
       </ion-card-header>
       <ion-card-content class="marcasContent">
         <div class="marcasContent">
-          <ion-slides #slides *ngIf="marcas" loop="true" slidesPerView="2">
+          <ion-slides #slides *ngIf="marcas" loop="false" slidesPerView="2">
             <ion-slide *ngFor="let marca of marcas">
               <img src="{{marca.imageSrc}}" alt="Sponsor Image">
             </ion-slide>
