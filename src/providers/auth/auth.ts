@@ -1,5 +1,9 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LOCALIDADES } from '../../data/localidades-mok';
+import { tap } from 'rxjs/operators/tap';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 export interface User{
   name: string;
@@ -11,7 +15,7 @@ export class AuthProvider {
 
   currentUser: User;
 
-  constructor() {
+  constructor(public http: HttpClient) {
     console.log('Hello AuthProvider Provider');
   }
 
@@ -27,6 +31,11 @@ export class AuthProvider {
         resolve(false);
       }
     });
+  }
+
+  getLocalidades(): Observable<any>{
+    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/locations-all.php")
+      .pipe(tap(response => response['data']));  
   }
 
   isLoggedIn(){

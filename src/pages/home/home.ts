@@ -7,6 +7,7 @@ import { InternaProductPage } from '../interna-product/interna-product';
 import { SLIDES } from '../../data/slides-mok';
 import { LOCALIDADES } from './../../data/localidades-mok';
 import { ProductProvider } from '../../providers/product/product';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({
   selector: 'page-home',
@@ -26,7 +27,7 @@ export class HomePage {
     public navCtrl: NavController,
     private alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    private productProvider: ProductProvider 
+    private productProvider: ProductProvider, private authProvider: AuthProvider 
   ) {
     this.presentAlert();
     this.getAllBrand();
@@ -49,9 +50,16 @@ export class HomePage {
     let alert = this.alertCtrl.create();
     alert.setTitle('Elige tu Localidad');
     //alert.addInput({type: 'radio', label: '2', value: '2'});
-    this.localidades.map((local)=>{
-      alert.addInput({type: 'radio', label: local.name, value: local.name});
-    })
+    this.authProvider.getLocalidades().subscribe(x => {
+      //console.log("loca: ", x["data"]);
+      x["data"].map(local=>{
+        let lo = local.localidad;
+        console.log(lo);
+
+        alert.addInput({type: 'radio', label: "saf", value: "sfa"});
+      }); 
+    });
+    
     alert.addButton({
       text: 'OK',
       handler: data => {
