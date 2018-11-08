@@ -21,7 +21,7 @@ export class HomePage {
   images : any = SLIDES;
   products : any[];
   marcas : any[];
-  localidades : any[] = LOCALIDADES;
+  localidades : any[];
 
   constructor(
     public navCtrl: NavController,
@@ -29,13 +29,14 @@ export class HomePage {
     public loadingCtrl: LoadingController,
     private productProvider: ProductProvider, private authProvider: AuthProvider 
   ) {
-    this.presentAlert();
+    //this.presentAlert();
+    this.getLocalidades();
     this.getAllBrand();
   }
   
-  ionViewWillEnter(){
+  /* ionViewWillEnter(){
     this.getProducts();
-  }
+  } */
 
   presentLoading() {
     const loader = this.loadingCtrl.create({
@@ -45,24 +46,29 @@ export class HomePage {
     loader.present();
   }
 
-  presentAlert(){
+  getLocalidades(){
+    this.authProvider.getLocalidades().subscribe(x=>{
+      this.localidades = x['data'];
+      this.presentAlert(this.localidades);
+      //console.log('localidades',this.localidades);
+    })
+  }
+
+  presentAlert(localidades){
     //console.log('ALERT!!!')
     let alert = this.alertCtrl.create();
     alert.setTitle('Elige tu Localidad');
     //alert.addInput({type: 'radio', label: '2', value: '2'});
-    this.authProvider.getLocalidades().subscribe(x => {
-      //console.log("loca: ", x["data"]);
-      x["data"].map(local=>{
+      localidades.map(local=>{
         let lo = local.localidad;
-        console.log(lo);
-
-        alert.addInput({type: 'radio', label: "saf", value: "sfa"});
-      }); 
+        //console.log(lo);
+        alert.addInput({type: 'radio', label: lo, value: lo})
     });
     
     alert.addButton({
       text: 'OK',
       handler: data => {
+        this.getProducts(2,data);
         console.log('Site:', data);
         this.presentLoading();
       }
@@ -82,15 +88,15 @@ export class HomePage {
     this.slides.slidePrev();
   }
 
-  getProducts(){
-    this.productProvider.getProducts().subscribe(
-      products => {console.log('a',products['data']),this.products =products['data']}
+  getProducts(userid,local){
+    this.productProvider.getProducts(userid,local).subscribe(
+      products => {/* console.log('a',products['data'] ),*/this.products =products['data']}
     )
   }
 
   getAllBrand(){
     this.productProvider.getBrand()
-      .subscribe(brand => {console.log('b',brand['data']),this.marcas = brand['data']})
+      .subscribe(brand => {/* console.log('b',brand['data'] ),*/this.marcas = brand['data']})
   }
 
 }

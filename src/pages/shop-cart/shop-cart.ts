@@ -51,37 +51,15 @@ export class ShopCartPage {
     })
     this.dataProd.push(product);
     console.log('event', this.dataProd);
-  }
-
-  sendPedido(){
-    console.log('despues',this.dataProd);
-    
-    /* let datarequest = new Date();
-    let dia = datarequest.getDate().toString();
-    let mes = datarequest.getMonth().toString();
-    let age = datarequest.getFullYear().toString();
-    let fecha = dia+"/"+mes+"/"+age;
-    let datapedido = [];
-    
-    let user={
-      'userid':userid
-    };
-    
-    let comment={
-      'comment':comments
-    };
-    let food={
-      'foodweek':foodweeks
-    };
-    
-    datapedido.push(user,comment,food);
-
-    console.log(datapedido);
-    this.favorite.sendRequest(datapedido); */
-    //console.log('aqioioasd',fecha);
   }  
 
+  
   presentAlert(){
+    let datarequest = new Date();
+    /* let dia = datarequest.getDate().toString();
+    let mes = datarequest.getMonth().toString();
+    let age = datarequest.getFullYear().toString();
+    let fecha = dia+"/"+mes+"/"+age; */
     
     let alert = this.alertCtrl.create({
       title:`
@@ -117,7 +95,8 @@ export class ShopCartPage {
             this.foodweeks = data;
             console.log('Value checked', data);
             //this.sendPedido("1",this.comment,this.foodweeks);
-            //this.favorite.sendRequest("1",this.comment,this.foodweeks,this.dataProduct)
+            console.log('envio', this.comment, this.foodweeks, this.dataProd, datarequest);
+            this.favorite.sendRequest("1",this.comment,this.foodweeks,this.dataProd,datarequest)
           }
         },
       ]

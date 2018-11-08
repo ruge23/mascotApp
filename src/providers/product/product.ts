@@ -13,10 +13,10 @@ export class ProductProvider {
     console.log('Hello ProductProvider Provider');
   }
 
-  getProducts(): any {
+  getProducts(userid,local): any {
     /*  this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all.php")
                      .map(this.extractData); */
-    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all-user.php?userid=1")
+    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all-location.php?location="+local+"&userid="+userid)
       .pipe(tap(response => response["data"]));
   }
 
