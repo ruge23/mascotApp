@@ -30,15 +30,13 @@ export class FavoriteProvider {
     })
   }
 
-  deleteToFavorite(userid, productid){
+  deleteToFavorite(userid, productid): Observable<any>{
     var url = "http://ctrlztest.com.ar/mascotasya/apirest/user-delete-favorite.php";
     let postData = new FormData();
     postData.append('userid', userid);
     postData.append('productid', productid)
-    this.data = this.http.post(url, postData);
-    this.data.subscribe(data =>{
-      console.log(data);
-    })
+    return this.http.post(url, postData);
+    
   }
 
   sendRequest(userid,comment,foodweeks,products,fecha){

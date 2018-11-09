@@ -19,7 +19,7 @@ export class LoginPage {
   }
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private authProvider: AuthProvider,
     private alertCtrl: AlertController
@@ -30,12 +30,14 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  loginUser(){
+  loginUser() {
     this.authProvider.login(this.user.name, this.user.pw)
-      .then(success=>{
-        if(success){
+      .subscribe(success => {
+        console.log("login",success);
+        if (success['data']) {
           this.navCtrl.setRoot(MenuPage);
-        }else{
+        }
+        else {
           let alert = this.alertCtrl.create({
             title: 'Ingreso fallido!',
             message: 'Por favor verifica tu usuario o contraseña',
@@ -46,8 +48,7 @@ export class LoginPage {
       })
   }
 
-  goToRegister(){
+  goToRegister() {
     this.navCtrl.push(AboutPage);
   }
-
 }

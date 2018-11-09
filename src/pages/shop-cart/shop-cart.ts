@@ -19,20 +19,20 @@ import { ShoppingServiceProvider } from '../../providers/shopping-service/shoppi
 })
 export class ShopCartPage {
 
-  items:number = 1;
+  items: number = 1;
   _cart = [];
-  foodweeks:string = "";
-  dataProduct=[];
+  foodweeks: string = "";
+  dataProduct = [];
   dataProd = [];
   products = {};
-  comment:string;
-  resultadoTotal:number;
-  conProduct:boolean;
+  comment: string;
+  resultadoTotal: number;
+  conProduct: boolean;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    private favorite: FavoriteProvider,      
+    private favorite: FavoriteProvider,
     private storage: Storage,
     public shoppingService: ShoppingServiceProvider,
     private alertCtrl: AlertController,
@@ -45,24 +45,24 @@ export class ShopCartPage {
     const newProd = this._cart.find(prod => prod.id === id)
     newProd['cant'] = event;
     this.dataProduct.push(newProd);
-    this.dataProduct.map((prod)=>{
+    this.dataProduct.map((prod) => {
       product['productid'] = prod.id;
-      product['amount'] = prod.cant;      
+      product['amount'] = prod.cant;
     })
     this.dataProd.push(product);
     console.log('event', this.dataProd);
-  }  
+  }
 
-  
-  presentAlert(){
+
+  presentAlert() {
     let datarequest = new Date();
     /* let dia = datarequest.getDate().toString();
     let mes = datarequest.getMonth().toString();
     let age = datarequest.getFullYear().toString();
     let fecha = dia+"/"+mes+"/"+age; */
-    
+
     let alert = this.alertCtrl.create({
-      title:`
+      title: `
             <div style="margin: 0 auto; text-align:center; align-items:center;">
                 <img class="imgPedido" src="../../assets/imgs/check.png">
                 <h6>Tu pedido fue enviado!</h6>
@@ -96,7 +96,7 @@ export class ShopCartPage {
             console.log('Value checked', data);
             //this.sendPedido("1",this.comment,this.foodweeks);
             console.log('envio', this.comment, this.foodweeks, this.dataProd, datarequest);
-            this.favorite.sendRequest("1",this.comment,this.foodweeks,this.dataProd,datarequest)
+            this.favorite.sendRequest("1", this.comment, this.foodweeks, this.dataProd, datarequest)
           }
         },
       ]
@@ -104,31 +104,31 @@ export class ShopCartPage {
     alert.present();
   }
 
-  addToCart(item){
+  addToCart(item) {
     let stock = [];
     let newObj = Object.assign({}, ...Object.keys(item).map(k => {
-      if(k === 'units'){
-        for(let i=1; i<= item[k];i++){
+      if (k === 'units') {
+        for (let i = 1; i <= item[k]; i++) {
           stock.push(i);
-        }  
+        }
       }
-      ({[k]: item[k]})
+      ({ [k]: item[k] })
     }));
     item.stock = stock;
     this._cart.push(item);
     this.shoppingService.addItem(item)
   }
 
-  addTotalxPedido(price, cant){
-    let resultado:number;
-    if(this.products){
+  addTotalxPedido(price, cant) {
+    let resultado: number;
+    if (this.products) {
       let precio = Number(price);
       let cantidad = Number(cant);
-      resultado = precio*cantidad;
+      resultado = precio * cantidad;
       this.resultadoTotal += resultado;
       //console.log(this.resultadoTotal);
-      return resultado;    
-    }else{
+      return resultado;
+    } else {
       return 0;
     }
   }
@@ -140,31 +140,31 @@ export class ShopCartPage {
       this.shoppingService.removeItem(item);
     }
     let index1 = this.dataProduct.indexOf(item);
-    if(index1 > -1){
+    if (index1 > -1) {
       this.dataProduct.splice(index1, 1);
     }
   }
 
-  addTotal(){
-    let total=0;
-    if(this._cart.length > 0){
-      this._cart.map((item)=>{
+  addTotal() {
+    let total = 0;
+    if (this._cart.length > 0) {
+      this._cart.map((item) => {
         total += Number(item.price);
       })
       return total;
-    }else{
+    } else {
       return total;
     }
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.conProduct = false;
     this.storage.get('product-list').then((val) => {
-      if(val != null){
+      if (val != null) {
         this.storage.set('product-add', this.items++)
         this.conProduct = true;
         this.addToCart(val);
-        console.log('shop',this._cart);
+        console.log('shop', this._cart);
         this.storage.set('product-list', null)
       }
     });

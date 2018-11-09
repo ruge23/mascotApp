@@ -5,7 +5,7 @@ import { tap } from 'rxjs/operators/tap';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
-export interface User{
+export interface User {
   name: string;
   role: number;
 }
@@ -19,34 +19,33 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
-  login(name:string, pw:string):Promise<boolean>{
-    return new Promise((resolve, reject)=>{
-      if(name === 'Lore' && pw === 'user'){
-        this.currentUser ={
-          name: name,
-          role: 0
-        };
-        resolve(true);
-      }else{
-        resolve(false);
-      }
-    });
+  login(name: string, pw: string): Observable<any> {
+    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/validate-user.php?user=" + name + "&pass=" + pw)
+      .pipe(tap(response => {
+        if (response['data']) {
+          this.currentUser = {
+            name: name,
+            role: 0
+          };
+        }
+     
+      }));
   }
 
-  getLocalidades(): Observable<any>{
+  getLocalidades(): Observable<any> {
     return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/locations-all.php")
-      .pipe(tap(response => response['data']));  
+      .pipe(tap(response => response['data']));
   }
 
-  isLoggedIn(){
+  isLoggedIn() {
     return this.currentUser != null;
   }
 
-  isUser(){
+  isUser() {
     return this.currentUser.role === 0;
   }
 
-  logout(){
+  logout() {
     this.currentUser = null;
   }
 

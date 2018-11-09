@@ -51,5 +51,8 @@ export class FavoritesPage {
     if(index1 > -1){
       this.products.splice(index1, 1);
     }
+    console.log("antes");
+    this.favorite.deleteToFavorite(this.userid,item.id).subscribe(x => console.log("listo"));
+    console.log("despues");
   }
 }
