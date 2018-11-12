@@ -31,7 +31,20 @@ export class AuthProvider {
      
       }));
   }
-
+  public uid: number = 0;
+  getUserId(){
+    return this.uid;
+  }
+  setUserId(userid){
+    this.uid = userid;
+  }
+  public selectedlocation: string = "";
+  getselectedlocation(){
+    return this.selectedlocation;
+  }
+  setselectedlocation(sl){
+    this.selectedlocation = sl;
+  }
   getLocalidades(): Observable<any> {
     return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/locations-all.php")
       .pipe(tap(response => response['data']));

@@ -6,6 +6,7 @@ import { ShopCartPage } from '../shop-cart/shop-cart';
 import { Storage } from '@ionic/storage';
 
 import { FavoriteProvider } from './../../providers/favorite/favorite';
+import { ShoppingServiceProvider } from '../../providers/shopping-service/shopping-service';
 
 @IonicPage()
 @Component({
@@ -24,7 +25,8 @@ export class InternaProductPage {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     private favorite: FavoriteProvider,
-    private storage: Storage
+    private storage: Storage,
+    private shopprovider: ShoppingServiceProvider
   ) {
       this.detailProduct = this.navParams.data;
       this.isChecked = (this.detailProduct.fav != 0);
@@ -66,29 +68,9 @@ export class InternaProductPage {
     this.addProduct_cart();
     //agregar a la lista del carrito
     console.log("add product", product);
-    this.storage.set("product-list", product);
-        
-    /*     this.listProducts.push(product);
-    if (this.storage.get("product-list")) {
-      this.storage.get('product-list').then((val) => {
-        console.log(val)
-        this.listProducts = val;
-      });
-    }else{
-      this.storage.set("product-list", this.listProducts);
-    } */
-
-    /* this.storage.get('product-list').then((val) => {
-      this.listProducts = val;
-      this.listProducts.push(product);
-      this.storage.set("product-list", this.listProducts);
-      //this.listProducts.push(val);
-      console.log('localSotage=>val', val);
-    }); */
-    
-
-   /*  this.listProducts.push(product);
-    console.log("add product: ", this.listProducts); */
+    //this.storage.set("product-list", product);
+    this.shopprovider.addItem(product);    
+   
 
   }
 

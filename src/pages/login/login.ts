@@ -35,7 +35,9 @@ export class LoginPage {
       .subscribe(success => {
         console.log("login",success);
         if (success['data']) {
-          this.navCtrl.setRoot(MenuPage);
+          console.log("mi id:",success['data']);
+          this.authProvider.setUserId(success['data']);
+          this.navCtrl.push(MenuPage);
         }
         else {
           let alert = this.alertCtrl.create({

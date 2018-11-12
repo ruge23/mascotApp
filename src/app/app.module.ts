@@ -26,6 +26,7 @@ import { HttpModule } from '@angular/http'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FavoriteProvider } from '../providers/favorite/favorite';
 import { ShoppingServiceProvider } from '../providers/shopping-service/shopping-service';
+import { SearchPage } from '../pages/search/search';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ShoppingServiceProvider } from '../providers/shopping-service/shopping-
     ModalPage,
     FavoritesPage,
     ShopCartPage,
-    MenuPage
+    MenuPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import { ShoppingServiceProvider } from '../providers/shopping-service/shopping-
     ModalPage,
     FavoritesPage,
     ShopCartPage,
-    MenuPage
+    MenuPage,
+    SearchPage
   ],
   providers: [
     StatusBar,

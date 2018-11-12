@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="Buscar"></ion-searchbar>
+    <ion-list>
+      <ion-item *ngFor="let item of productsfiltered" (click)="goToInterna(item)">
+          <ion-thumbnail item-start>
+              <img src="{{item.imageSrc}}">
+            </ion-thumbnail>
+            <h2>{{item.name}}</h2>
+      </ion-item>
+    </ion-list>
+</ion-content>

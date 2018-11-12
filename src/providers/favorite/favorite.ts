@@ -39,26 +39,6 @@ export class FavoriteProvider {
     
   }
 
-  sendRequest(userid,comment,foodweeks,products,fecha){
-    var url = "http://ctrlztest.com.ar/mascotasya/apirest/request-create.php";
-    let jsonProduct = JSON.stringify(products)
   
-    let data = new FormData();
-    data.append('userid', userid);
-    data.append('comment', comment);
-    data.append('foodweeks', foodweeks);
-    data.append('products', jsonProduct);
-    data.append('daterequest', fecha);
-    
-   /*  console.log('productos', data.get(jsonProduct));
-    console.log('commet', data.get(comment));
-    console.log('foodweeks', data.get(foodweeks));
-    console.log('daterequest', data.get(fecha)); */
-    
-    this.data = this.http.post(url, data);
-    this.data.subscribe(data =>{
-      console.log(data);
-    })
-  }
 
 }

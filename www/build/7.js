@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 308:
+/***/ 309:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FavoritesPageModule", function() { return FavoritesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InternaProductPageModule", function() { return InternaProductPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__favorites__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interna_product__ = __webpack_require__(32);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FavoritesPageModule = /** @class */ (function () {
-    function FavoritesPageModule() {
+var InternaProductPageModule = /** @class */ (function () {
+    function InternaProductPageModule() {
     }
-    FavoritesPageModule = __decorate([
+    InternaProductPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__favorites__["a" /* FavoritesPage */],
+                __WEBPACK_IMPORTED_MODULE_2__interna_product__["a" /* InternaProductPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__favorites__["a" /* FavoritesPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__interna_product__["a" /* InternaProductPage */]),
             ],
         })
-    ], FavoritesPageModule);
-    return FavoritesPageModule;
+    ], InternaProductPageModule);
+    return InternaProductPageModule;
 }());
 
-//# sourceMappingURL=favorites.module.js.map
+//# sourceMappingURL=interna-product.module.js.map
 
 /***/ })
 

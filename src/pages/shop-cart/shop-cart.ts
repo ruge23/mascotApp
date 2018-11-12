@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 
 import { FavoriteProvider } from './../../providers/favorite/favorite';
 import { ShoppingServiceProvider } from '../../providers/shopping-service/shopping-service';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the ShopCartPage page.
  *
@@ -93,18 +94,25 @@ export class ShopCartPage {
           role: 'ok',
           handler: data => {
             this.foodweeks = data;
-            console.log('Value checked', data);
+          /*   console.log('Value checked', data);
             //this.sendPedido("1",this.comment,this.foodweeks);
-            console.log('envio', this.comment, this.foodweeks, this.dataProd, datarequest);
-            this.favorite.sendRequest("1", this.comment, this.foodweeks, this.dataProd, datarequest)
+            console.log('envio', this.comment, this.foodweeks, this.dataProd, datarequest); */
+            this.shoppingService.sendRequest("1", this.comment, this.foodweeks, this.dataProd, datarequest);
+            this.shoppingService.removeAll();
+            this.navCtrl.push(HomePage);
           }
         },
       ]
     });
     alert.present();
+   
   }
 
-  addToCart(item) {
+  clearShopCart(){
+    this._cart
+  }
+
+ /*  addToCart(item) {
     let stock = [];
     let newObj = Object.assign({}, ...Object.keys(item).map(k => {
       if (k === 'units') {
@@ -117,7 +125,7 @@ export class ShopCartPage {
     item.stock = stock;
     this._cart.push(item);
     this.shoppingService.addItem(item)
-  }
+  } */
 
   addTotalxPedido(price, cant) {
     let resultado: number;
@@ -134,15 +142,21 @@ export class ShopCartPage {
   }
 
   removeFromCart(item) {
+    console.log("rodri")
     let index = this._cart.indexOf(item);
+    console.log("remove from", index);
     if (index > -1) {
-      this._cart.splice(index, 1);
       this.shoppingService.removeItem(item);
+      this._cart.splice(index, 1);
+      
+      
+      console.log("remove from shopservice");
     }
+    /* 
     let index1 = this.dataProduct.indexOf(item);
     if (index1 > -1) {
       this.dataProduct.splice(index1, 1);
-    }
+    } */
   }
 
   addTotal() {
@@ -159,7 +173,8 @@ export class ShopCartPage {
 
   ionViewWillEnter() {
     this.conProduct = false;
-    this.storage.get('product-list').then((val) => {
+    this._cart = this.shoppingService.getProducts();
+    /* this.storage.get('product-list').then((val) => {
       if (val != null) {
         this.storage.set('product-add', this.items++)
         this.conProduct = true;
@@ -167,7 +182,7 @@ export class ShopCartPage {
         console.log('shop', this._cart);
         this.storage.set('product-list', null)
       }
-    });
+    }); */
   }
 
   ionViewDidLoad() {

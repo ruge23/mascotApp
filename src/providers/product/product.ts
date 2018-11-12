@@ -8,21 +8,35 @@ import { tap } from 'rxjs/operators/tap';
 
 @Injectable()
 export class ProductProvider {
-
+  public brands: any;
+  public prods: any;
   constructor(public http: HttpClient) {
     console.log('Hello ProductProvider Provider');
   }
 
   getProducts(userid,local): any {
-    /*  this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all.php")
-                     .map(this.extractData); */
     return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all-location.php?location="+local+"&userid="+userid)
       .pipe(tap(response => response["data"]));
   }
 
-  getBrand():any{
+  getBrand(): any {
     return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/brand-all.php")
-      .pipe(tap(response => response['data']));
+      .pipe(tap(response => this.brands = response['data']));
   }
+/* 
+  getLocalBrands() {
+    this.storage.get("brands").then((val) => {
+      if(val != null && val != undefined){
+        return JSON.parse(val);
+      }
+    })
+  }
+  getLocalProducts() {
+  this.storage.get("prods").then((val) => {
+    if(val != null && val != undefined){
+      return JSON.parse(val);
+    }    
+  })
+  } */
 
 }
