@@ -9,7 +9,7 @@
         </ion-buttons>
       </ion-col>
       <!-- <ion-col class="imageHeader"> -->
-        <img style="width: 150px; height: 40px;" src="../../assets/imgs/elementos/logo/logo-blanco.png">
+      <img style="width: 150px; height: 40px;" src="../../assets/imgs/elementos/logo/logo-blanco.png">
       <!-- </ion-col> -->
       <ion-col>
         <ion-buttons float-right>
@@ -23,67 +23,79 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides style="height: 232px !important;" *ngIf="images"  autoplay="5000" loop="false" speed="500" class="slides" pager="true">
+  <ion-slides style="height: 232px !important;" *ngIf="images" autoplay="5000" loop="false" speed="500" class="slides"
+    pager="true">
     <ion-slide class="slideBanner" *ngFor="let image of images">
       <img class="banner" src="{{image.img}}" alt="Product Image">
     </ion-slide>
   </ion-slides>
-   <!--  <ion-fab right bottom>
+  <!--  <ion-fab right bottom>
       <button ion-fab color="add"><ion-icon name="add"></ion-icon></button>
     </ion-fab> -->
-    <ion-item>
-     <!-- <ion-badge color="secondary"></ion-badge> -->
-     <ion-grid text-center>
-       <ion-row wrap>
-           <ion-badge class="apply" color="light">
-             <div float-left style="width: 105px; text-align: center;margin-top: 6px;">
-               <h3>GANE 10% OFF</h3>
-               <p>En tu primer compra</p>
-             </div>
-           <ion-col>
-             <button style="height: 35px;" ion-button float-right color="royal">Aplicar Cupón</button>
-           </ion-col>
-          </ion-badge>
-         </ion-row>
-      </ion-grid>
-    </ion-item>
-    <ion-slides style="height: 230px !important;" *ngIf="products" loop="false" slidesPerView="2.5">
-      <ion-slide *ngFor="let product of products">
-        <ion-card class="cardProduct" (click)="goToInterna(product)">
-          <img class="imgProduct" src="{{product.imageSrc}}" alt="Product Image">
-          <ion-card-title>
-              <p>Ranking</p>
-          </ion-card-title>
-          <p>
-             $ {{product.price}}
-          </p>
-          <p>
-            <button ion-button class="buyProduct" color="royal">COMPRAR</button>
-          </p>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
-    <ion-card style="height: 165px !important;">
-      <ion-card-header style="text-align: center;">
+  <ion-list>
+    <!-- <ion-badge color="secondary"></ion-badge> -->
+    <ion-grid text-center>
+      <ion-row>
         <ion-col>
-          <ion-icon float-left name="arrow-back" class="btnPrev" (click)="prev()"></ion-icon>
+          <ion-item>
+            <ion-label>Perro</ion-label>
+            <ion-checkbox [(ngModel)]="chkPerro"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Gato</ion-label>
+            <ion-checkbox [(ngModel)]="chkGato"></ion-checkbox>
+          </ion-item>
         </ion-col>
         <ion-col>
-          Nuestras Marcas
+          <ion-item>
+            <ion-label>Cachorro</ion-label>
+            <ion-checkbox [(ngModel)]="chkCachorro"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Adulto</ion-label>
+            <ion-checkbox [(ngModel)]="chkAdulto"></ion-checkbox>
+          </ion-item>
         </ion-col>
-        <ion-col>
-            <ion-icon float-right name="arrow-forward" class="btnPrev" (click)="next()"></ion-icon>
-        </ion-col>
-      </ion-card-header>
-      <ion-card-content class="marcasContent">
-        <div class="marcasContent">
-          <ion-slides #slides *ngIf="marcas" loop="false" slidesPerView="2">
-            <ion-slide *ngFor="let marca of marcas">
-              <img src="http://ctrlztest.com.ar/mascotasya/admin/{{marca.imageSrc}}" alt="Sponsor Image">
-            </ion-slide>
-          </ion-slides>
-        </div>
-      </ion-card-content>
-    </ion-card>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+  <ion-slides style="height: 230px !important;" *ngIf="products" loop="false" slidesPerView="2.5">
+    <ion-slide *ngFor="let product of products">
+      <ion-card class="cardProduct" (click)="goToInterna(product)">
+        <img class="imgProduct" src="{{product.imageSrc}}" alt="Product Image">
+        <ion-card-title>
+          <p>Ranking</p>
+        </ion-card-title>
+        <p>
+          $ {{product.price}}
+        </p>
+        <p>
+          <button ion-button class="buyProduct" color="royal">COMPRAR</button>
+        </p>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <ion-card style="height: 165px !important;">
+    <ion-card-header style="text-align: center;">
+      <ion-col>
+        <ion-icon float-left name="arrow-back" class="btnPrev" (click)="prev()"></ion-icon>
+      </ion-col>
+      <ion-col>
+        Nuestras Marcas
+      </ion-col>
+      <ion-col>
+        <ion-icon float-right name="arrow-forward" class="btnPrev" (click)="next()"></ion-icon>
+      </ion-col>
+    </ion-card-header>
+    <ion-card-content class="marcasContent">
+      <div class="marcasContent">
+        <ion-slides #slides *ngIf="marcas" loop="false" slidesPerView="2">
+          <ion-slide *ngFor="let marca of marcas">
+            <img src="http://ctrlztest.com.ar/mascotasya/admin/{{marca.imageSrc}}" alt="Sponsor Image">
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

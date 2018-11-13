@@ -6,10 +6,11 @@ import { NavController, Slides, AlertController, LoadingController } from 'ionic
 import { InternaProductPage } from '../interna-product/interna-product';
 import { SLIDES } from '../../data/slides-mok';
 import { LOCALIDADES } from './../../data/localidades-mok';
-import { ProductProvider } from '../../providers/product/product';
+import { ProductProvider, iProduct } from '../../providers/product/product';
 import { AuthProvider } from '../../providers/auth/auth';
 import { SearchPage } from '../search/search';
 import { Storage } from '@ionic/storage';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
@@ -21,10 +22,13 @@ export class HomePage {
   private productList: any[];
   private caca: any[];
   images: any = SLIDES;
-  products: any;
+  products: Observable<iProduct>;
   marcas: any;
   localidades: any[];
-
+  chkCachorro: boolean;
+  chkAdulto: boolean;
+  chkPerro: boolean;
+  chkGato: boolean;
   constructor(
     public navCtrl: NavController,
     private alertCtrl: AlertController,

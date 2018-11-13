@@ -50,9 +50,18 @@ export class ShoppingServiceProvider {
       this.products = null;
   }
 
-  sendRequest(userid,comment,foodweeks,products,fecha){
+  sendRequest(userid,comment,foodweeks,carrito,fecha){
     var url = "http://ctrlztest.com.ar/mascotasya/apirest/request-create.php";
-    let jsonProduct = JSON.stringify(products)
+    let jsonProductos = [];
+    
+    carrito.map((prod) => {
+      let product = {};
+      product['productid'] = prod.id;
+      product['amount'] = prod.cant;
+      jsonProductos.push(product);
+    })    
+    
+    let jsonProduct = JSON.stringify(jsonProductos)
   
     let data = new FormData();
     data.append('userid', userid);

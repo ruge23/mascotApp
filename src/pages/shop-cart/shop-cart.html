@@ -46,7 +46,7 @@
                 <ion-item>
                   <ion-label>Cantidad: </ion-label>
                   <ion-select (ionChange)="onItemSelection(item.id, $event)" name="cantidad">
-                    <ion-option *ngFor="let i of item.stock" [value]="i">{{i}}</ion-option>                      
+                    <ion-option *ngFor="let i of convertToArray(item.units)" [value]="i">{{i}}</ion-option>                      
                   </ion-select>
                 </ion-item>
              </ion-col>
@@ -72,10 +72,10 @@
               <p float-left>{{item.name}}</p>
             </ion-col>
             <ion-col>
-              <p> x {{products.cantidad}}</p>
+              <p> x {{item.amount}}</p>
             </ion-col>
             <ion-col>
-              <div float-right *ngIf="products.cantidad">$ {{addTotalxPedido(item.price,products.cantidad)}}</div>
+              <div float-right *ngIf="products.cantidad">${{item.amount * item.price}}</div>
             </ion-col>
           </ion-row>
         </ion-card-content>
@@ -106,6 +106,6 @@
 </ion-content>
 <ion-footer>
     <ion-toolbar>
-        <button ion-button full color="add" (click)="presentAlert()">Realizar Pedido</button>
+        <button ion-button full color="add" (click)="realizarPedido()">Realizar Pedido</button>
       </ion-toolbar>
 </ion-footer>

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, List } from 'ionic-angular';
 import { InternaProductPage } from '../interna-product/interna-product';
 import { Storage } from '@ionic/storage';
 
 import { FavoriteProvider } from './../../providers/favorite/favorite';
 import { ShoppingServiceProvider } from '../../providers/shopping-service/shopping-service';
 import { HomePage } from '../home/home';
+import { Observable } from 'rxjs/Observable';
+import { iProduct } from '../../providers/product/product';
 /**
  * Generated class for the ShopCartPage page.
  *
@@ -21,7 +23,7 @@ import { HomePage } from '../home/home';
 export class ShopCartPage {
 
   items: number = 1;
-  _cart = [];
+  _cart: iProduct[];
   foodweeks: string = "";
   dataProduct = [];
   dataProd = [];
@@ -41,27 +43,28 @@ export class ShopCartPage {
 
   }
 
+  ionViewWillEnter() {    
+    this._cart = this.shoppingService.getProducts();  
+    this.conProduct = (this._cart.length > 0);
+    console.log("carrito",this._cart); 
+    this.calculateTotal();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ShopCartPage');
+  }
+
   onItemSelection(id, event) {
-    let product = {};
-    const newProd = this._cart.find(prod => prod.id === id)
-    newProd['cant'] = event;
-    this.dataProduct.push(newProd);
-    this.dataProduct.map((prod) => {
-      product['productid'] = prod.id;
-      product['amount'] = prod.cant;
-    })
-    this.dataProd.push(product);
-    console.log('event', this.dataProd);
+   
+    const newProd = this._cart.find(prod => prod.id == id)
+    newProd['amount'] = event;
+    this.calculateTotal();
   }
 
 
-  presentAlert() {
+  realizarPedido() {
     let datarequest = new Date();
-    /* let dia = datarequest.getDate().toString();
-    let mes = datarequest.getMonth().toString();
-    let age = datarequest.getFullYear().toString();
-    let fecha = dia+"/"+mes+"/"+age; */
-
+  
     let alert = this.alertCtrl.create({
       title: `
             <div style="margin: 0 auto; text-align:center; align-items:center;">
@@ -93,11 +96,8 @@ export class ShopCartPage {
           text: 'Gracias!',
           role: 'ok',
           handler: data => {
-            this.foodweeks = data;
-          /*   console.log('Value checked', data);
-            //this.sendPedido("1",this.comment,this.foodweeks);
-            console.log('envio', this.comment, this.foodweeks, this.dataProd, datarequest); */
-            this.shoppingService.sendRequest("1", this.comment, this.foodweeks, this.dataProd, datarequest);
+            this.foodweeks = data;      
+            this.shoppingService.sendRequest("1", this.comment, this.foodweeks, this._cart, datarequest);
             this.shoppingService.removeAll();
             this.navCtrl.push(HomePage);
           }
@@ -108,38 +108,15 @@ export class ShopCartPage {
    
   }
 
-  clearShopCart(){
-    this._cart
-  }
-
- /*  addToCart(item) {
-    let stock = [];
-    let newObj = Object.assign({}, ...Object.keys(item).map(k => {
-      if (k === 'units') {
-        for (let i = 1; i <= item[k]; i++) {
-          stock.push(i);
-        }
-      }
-      ({ [k]: item[k] })
-    }));
-    item.stock = stock;
-    this._cart.push(item);
-    this.shoppingService.addItem(item)
-  } */
-
-  addTotalxPedido(price, cant) {
-    let resultado: number;
-    if (this.products) {
-      let precio = Number(price);
-      let cantidad = Number(cant);
-      resultado = precio * cantidad;
-      this.resultadoTotal += resultado;
-      //console.log(this.resultadoTotal);
-      return resultado;
-    } else {
-      return 0;
+  convertToArray(number){
+    let ret = [];
+    for(var i=1;i<=number;i++) {
+      ret.push(i);
     }
-  }
+    return ret;
+}
+
+
 
   removeFromCart(item) {
     console.log("rodri")
@@ -148,8 +125,8 @@ export class ShopCartPage {
     if (index > -1) {
       this.shoppingService.removeItem(item);
       this._cart.splice(index, 1);
-      
-      
+      this.conProduct = (this._cart.length > 0);
+      this.calculateTotal();
       console.log("remove from shopservice");
     }
     /* 
@@ -159,36 +136,19 @@ export class ShopCartPage {
     } */
   }
 
-  addTotal() {
+  calculateTotal() {
     let total = 0;
     if (this._cart.length > 0) {
       this._cart.map((item) => {
-        total += Number(item.price);
+        total += item.price * item.amount;
       })
-      return total;
+      this.resultadoTotal = total;
     } else {
-      return total;
+      this.resultadoTotal =  total;
     }
   }
 
-  ionViewWillEnter() {
-    this.conProduct = false;
-    this._cart = this.shoppingService.getProducts();
-    /* this.storage.get('product-list').then((val) => {
-      if (val != null) {
-        this.storage.set('product-add', this.items++)
-        this.conProduct = true;
-        this.addToCart(val);
-        console.log('shop', this._cart);
-        this.storage.set('product-list', null)
-      }
-    }); */
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ShopCartPage');
-
-  }
+  
 
   goToProduct(product) {
     this.navCtrl.push(InternaProductPage, product);

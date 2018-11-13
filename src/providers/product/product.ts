@@ -14,8 +14,8 @@ export class ProductProvider {
     console.log('Hello ProductProvider Provider');
   }
 
-  getProducts(userid,local): any {
-    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/product-all-location.php?location="+local+"&userid="+userid)
+  getProducts(userid,local): Observable<iProduct> {
+    return this.http.get<iProduct>("http://ctrlztest.com.ar/mascotasya/apirest/product-all-location.php?location="+local+"&userid="+userid)
       .pipe(tap(response => response["data"]));
   }
 
@@ -39,4 +39,17 @@ export class ProductProvider {
   })
   } */
 
+}
+
+export class iProduct {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  units: number;
+  imageSrc: string;
+  rate: number;
+  brand: string;
+  fav: boolean;
+  amount: number = 0;
 }
