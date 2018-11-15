@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { iProduct } from '../product/product';
 
 /*
   Generated class for the ShoppingServiceProvider provider.
@@ -50,35 +51,43 @@ export class ShoppingServiceProvider {
       this.products = null;
   }
 
-  sendRequest(userid,comment,foodweeks,carrito,fecha){
+  sendRequest(request){
     var url = "http://ctrlztest.com.ar/mascotasya/apirest/request-create.php";
     let jsonProductos = [];
     
-    carrito.map((prod) => {
+    request.products.map((prod) => {
       let product = {};
       product['productid'] = prod.id;
-      product['amount'] = prod.cant;
+      product['amount'] = prod.amount;
       jsonProductos.push(product);
     })    
     
     let jsonProduct = JSON.stringify(jsonProductos)
   
     let data = new FormData();
-    data.append('userid', userid);
-    data.append('comment', comment);
-    data.append('foodweeks', foodweeks);
+    data.append('userid', request.userid);
+    data.append('comment', request.comment);
+    data.append('foodweeks', request.foodweeks);
     data.append('products', jsonProduct);
-    data.append('daterequest', fecha);
-    
-   /*  console.log('productos', data.get(jsonProduct));
-    console.log('commet', data.get(comment));
-    console.log('foodweeks', data.get(foodweeks));
-    console.log('daterequest', data.get(fecha)); */
-    
+    data.append('daterequest', request.daterequest);
+    data.append('deliverydays', request.deliverydays);
+    data.append('deliverytime', request.deliverytime);
+     
     this.data = this.http.post(url, data);
     this.data.subscribe(data =>{
       console.log(data);
     })
   }
 
+  
+
+}
+export class cartRequest{
+  userid: number;
+  comment: string;
+  foodweeks: string;
+  products: iProduct[];
+  daterequest: Date;
+  deliverytime: string;
+  deliverydays: string;
 }

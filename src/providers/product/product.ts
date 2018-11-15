@@ -15,8 +15,9 @@ export class ProductProvider {
   }
 
   getProducts(userid,local): Observable<iProduct> {
-    return this.http.get<iProduct>("http://ctrlztest.com.ar/mascotasya/apirest/product-all-location.php?location="+local+"&userid="+userid)
-      .pipe(tap(response => response["data"]));
+    let url = "http://ctrlztest.com.ar/mascotasya/apirest/product-all-location.php?location="+local+"&userid="+userid;
+    console.log(url);
+    return this.http.get<iProduct>(url);
   }
 
   getBrand(): any {
@@ -52,4 +53,8 @@ export class iProduct {
   brand: string;
   fav: boolean;
   amount: number = 0;
+  forDog: boolean;
+  forCat: boolean;
+  forAdult: boolean;
+  forPuppy: boolean;
 }

@@ -93,7 +93,19 @@
       </div>
     </ion-list>
   </ion-card>
-
+  <ion-card>
+    <ion-card-header>
+      Dias y horario de entrega:
+    </ion-card-header>
+    <ion-item>
+      <ion-label floating>Dias de entrega</ion-label>
+      <ion-textarea [(ngModel)]="deliverydays"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Horarios de entrega</ion-label>
+      <ion-textarea [(ngModel)]="deliverytime"></ion-textarea>
+    </ion-item>
+  </ion-card>
   <ion-card>
     <ion-card-header>
       Dejanos tu comentario:

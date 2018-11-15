@@ -39,28 +39,28 @@
         <ion-col>
           <ion-item>
             <ion-label>Perro</ion-label>
-            <ion-checkbox [(ngModel)]="chkPerro"></ion-checkbox>
+            <ion-checkbox (ionChange)="onFilterChange()" [(ngModel)]="chkPerro"></ion-checkbox>
           </ion-item>
           <ion-item>
             <ion-label>Gato</ion-label>
-            <ion-checkbox [(ngModel)]="chkGato"></ion-checkbox>
+            <ion-checkbox (ionChange)="onFilterChange()" [(ngModel)]="chkGato"></ion-checkbox>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label>Cachorro</ion-label>
-            <ion-checkbox [(ngModel)]="chkCachorro"></ion-checkbox>
+            <ion-checkbox (ionChange)="onFilterChange()" [(ngModel)]="chkCachorro"></ion-checkbox>
           </ion-item>
           <ion-item>
             <ion-label>Adulto</ion-label>
-            <ion-checkbox [(ngModel)]="chkAdulto"></ion-checkbox>
+            <ion-checkbox (ionChange)="onFilterChange()" [(ngModel)]="chkAdulto"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-list>
   <ion-slides style="height: 230px !important;" *ngIf="products" loop="false" slidesPerView="2.5">
-    <ion-slide *ngFor="let product of products">
+    <ion-slide *ngFor="let product of productsFiltered">
       <ion-card class="cardProduct" (click)="goToInterna(product)">
         <img class="imgProduct" src="{{product.imageSrc}}" alt="Product Image">
         <ion-card-title>
