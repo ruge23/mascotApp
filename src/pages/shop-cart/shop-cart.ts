@@ -34,6 +34,7 @@ export class ShopCartPage {
   comment: string;
   resultadoTotal: number;
   conProduct: boolean;
+  chkImportant: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -101,17 +102,21 @@ export class ShopCartPage {
           role: 'ok',
           handler: data => {
             this.foodweeks = data;
-            let req = new cartRequest();
-            req.userid = this.authprovider.getUserId();
-            req.comment = this.comment;
-            req.foodweeks = this.foodweeks;
-            req.products = this._cart;
-            req.daterequest = datarequest;
-            req.deliverydays = this.deliverydays;
-            req.deliverytime = this.deliverytime;
-            this.shoppingService.sendRequest(req);
-            this.shoppingService.removeAll();
-            this.navCtrl.push(HomePage);
+            this.storage.get("_uid_").then(x => {
+              let req = new cartRequest();
+
+              req.userid = x;
+              req.comment = this.comment;
+              req.foodweeks = this.foodweeks;
+              req.products = this._cart;
+              req.daterequest = datarequest;
+              req.deliverydays = this.deliverydays;
+              req.deliverytime = this.deliverytime;
+              req.isimportant = this.chkImportant;
+              this.shoppingService.sendRequest(req);
+              this.shoppingService.removeAll();
+              this.navCtrl.push(HomePage);
+            });
           }
         },
       ]

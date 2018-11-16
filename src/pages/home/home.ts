@@ -52,7 +52,7 @@ export class HomePage {
       else {
         this.getLocalidades();
       }
-      
+
     });
   }
   /* ionViewWillEnter(){
@@ -75,49 +75,53 @@ export class HomePage {
     })
   }
 
-  // onFilterChange() {
-  //   if (!this.chkAdulto || !this.chkCachorro || !this.chkGato || !this.chkPerro) {
-  //     this.productsFiltered = this.products.filter(proj => 
-  //       proj.forAdult == this.chkAdulto).filter(proj1 => 
-  //        proj1.forPuppy == this.chkCachorro).filter(proj2 => 
-  //        proj2.forCat == this.chkGato).filter(proj3 => 
-  //        proj3.forDog == this.chkPerro);
-  //   }
-  //   else{
-  //     this.productsFiltered = this.products;
-  //   }
-  //   console.log("prods", this.productsFiltered);
-  // }
+  onFilterChange() {
+    this.productsFiltered = [];
+    if (this.chkAdulto || this.chkCachorro || this.chkPerro || this.chkGato) {
+      if (this.chkAdulto) {
+        let filter1 = this.products.filter(proj =>
+          (proj.forAdult == this.chkAdulto) == true);
+        
+        filter1.map(x => {
+          if (!this.productsFiltered.find(f => f.id == x.id)) {
+            this.productsFiltered.push(x);
+          }
+        });
+      }
+      if (this.chkCachorro) {
+        let filter2 = this.products.filter(proj1 =>
+          (proj1.forPuppy == this.chkCachorro) == true);
+        
+        filter2.map(x => {
+          if (!this.productsFiltered.find(f => f.id == x.id)) {
+            this.productsFiltered.push(x);
+          }
+        });
+      }
+      if (this.chkGato) {
+        let filter3 = this.products.filter(proj2 =>
+          (proj2.forCat == this.chkGato) == true);
 
-   onFilterChange() {
+        filter3.map(x => {
+          if (!this.productsFiltered.find(f => f.id == x.id)) {
+            this.productsFiltered.push(x);
+          }
+        });
+      }
+      if (this.chkPerro) {
+        let filter4 = this.products.filter(proj3 =>
+          (proj3.forDog == this.chkPerro) == true);
 
-     if (!this.chkAdulto) {
-          this.productsFiltered = this.products.filter(proj => 
-            proj.forAdult == this.chkAdulto).filter(proj1 => 
-             proj1.forPuppy == this.chkCachorro).filter(proj2 => 
-             proj2.forCat == this.chkGato).filter(proj3 => 
-             proj3.forDog == this.chkPerro);
-        }
-        else{
-          this.productsFiltered = this.products;
-        }
-        console.log("prods", this.productsFiltered);
-
-       
-       
-       
-        if (!this.chkCachorro) {
-          this.productsFiltered = this.products.filter(proj => 
-            proj.forAdult == this.chkAdulto).filter(proj1 => 
-             proj1.forPuppy == this.chkCachorro).filter(proj2 => 
-             proj2.forCat == this.chkGato).filter(proj3 => 
-             proj3.forDog == this.chkPerro);
-        }
-        else{
-          this.productsFiltered = this.products;
-        }
-        console.log("prods", this.productsFiltered);
-
+        filter4.map(x => {
+          if (!this.productsFiltered.find(f => f.id == x.id)) {
+            this.productsFiltered.push(x);
+          }
+        });
+      }
+    }
+    else{
+      this.productsFiltered =this.products;
+    }
   }
 
   presentAlert(localidades) {
@@ -135,7 +139,9 @@ export class HomePage {
       text: 'OK',
       handler: data => {
         console.log("localidad", data);
-        this.getProducts(this.authProvider.getUserId(), data);
+        this.storage.get("_uid_").then(x => {
+        this.getProducts(x, data);
+        });
         this.authProvider.setselectedlocation(data);
         this.presentLoading();
       }

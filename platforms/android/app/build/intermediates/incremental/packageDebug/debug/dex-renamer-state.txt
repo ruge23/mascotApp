@@ -1,4 +1,4 @@
-#Thu Nov 08 23:52:36 ART 2018
+#Thu Nov 15 16:59:40 ART 2018
 base.0=C\:\\xampp\\htdocs\\mascotasya\\app\\mascotApp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
 file.0=C\:\\xampp\\htdocs\\mascotasya\\app\\mascotApp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

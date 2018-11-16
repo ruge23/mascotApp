@@ -54,9 +54,10 @@ export class ShoppingServiceProvider {
   sendRequest(request){
     var url = "http://ctrlztest.com.ar/mascotasya/apirest/request-create.php";
     let jsonProductos = [];
-    
+    console.log("request",request.products);
     request.products.map((prod) => {
       let product = {};
+      console.log("req am id", prod.id, prod.amount);
       product['productid'] = prod.id;
       product['amount'] = prod.amount;
       jsonProductos.push(product);
@@ -72,7 +73,8 @@ export class ShoppingServiceProvider {
     data.append('daterequest', request.daterequest);
     data.append('deliverydays', request.deliverydays);
     data.append('deliverytime', request.deliverytime);
-     
+    data.append('isimportant', (request.isimportant ? "1" : "0"));
+     console.log(data);
     this.data = this.http.post(url, data);
     this.data.subscribe(data =>{
       console.log(data);
@@ -90,4 +92,5 @@ export class cartRequest{
   daterequest: Date;
   deliverytime: string;
   deliverydays: string;
+  isimportant: boolean;
 }

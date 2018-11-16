@@ -4,6 +4,7 @@ import { LOCALIDADES } from '../../data/localidades-mok';
 import { tap } from 'rxjs/operators/tap';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Storage } from '@ionic/storage';
 
 export interface User {
   name: string;
@@ -15,8 +16,9 @@ export class AuthProvider {
 
   currentUser: User;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public storage: Storage) {
     console.log('Hello AuthProvider Provider');
+
   }
 
   login(name: string, pw: string): Observable<any> {
@@ -31,12 +33,10 @@ export class AuthProvider {
      
       }));
   }
-  public uid: number = 0;
-  getUserId(){
-    return this.uid;
-  }
+ 
   setUserId(userid){
-    this.uid = userid;
+    this.storage.set("_uid_",userid);
+
   }
   public selectedlocation: string = "";
   getselectedlocation(){
