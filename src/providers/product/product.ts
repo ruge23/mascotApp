@@ -46,6 +46,7 @@ export class iProduct {
   id: number;
   name: string;
   description: string;
+  composition: string;
   price: number;
   units: number;
   imageSrc: string;

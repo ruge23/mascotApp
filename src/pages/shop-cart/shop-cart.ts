@@ -113,9 +113,12 @@ export class ShopCartPage {
               req.deliverydays = this.deliverydays;
               req.deliverytime = this.deliverytime;
               req.isimportant = this.chkImportant;
-              this.shoppingService.sendRequest(req);
-              this.shoppingService.removeAll();
-              this.navCtrl.push(HomePage);
+              this.shoppingService.sendRequest(req).subscribe(x => {
+                console.log("termino", x);
+                this.removeAll();
+                this.navCtrl.push(HomePage);
+              });
+
             });
           }
         },
@@ -123,6 +126,14 @@ export class ShopCartPage {
     });
     alert.present();
 
+  }
+  removeAll() {
+    this.shoppingService.removeAll();
+    this._cart = [];
+    this.comment = "";
+    this.deliverydays = "";
+    this.deliverytime = "";
+    this.chkImportant = false;
   }
 
   convertToArray(number) {
@@ -157,7 +168,7 @@ export class ShopCartPage {
     let total = 0;
     if (this._cart.length > 0) {
       this._cart.map((item) => {
-        total += item.price * item.amount;
+        total += item.price * (item.amount > 0 ? item.amount : 0);
       })
       this.resultadoTotal = total;
     } else {

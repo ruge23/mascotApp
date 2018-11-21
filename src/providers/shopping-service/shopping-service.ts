@@ -48,10 +48,11 @@ export class ShoppingServiceProvider {
     }
   }
   public removeAll(){    
-      this.products = null;
+      this.products = [];
+      this.listSizeSubject.next(this.products.length);
   }
 
-  sendRequest(request){
+  sendRequest(request):Observable<any>{
     var url = "http://ctrlztest.com.ar/mascotasya/apirest/request-create.php";
     let jsonProductos = [];
     console.log("request",request.products);
@@ -65,20 +66,25 @@ export class ShoppingServiceProvider {
     
     let jsonProduct = JSON.stringify(jsonProductos)
   
-    let data = new FormData();
-    data.append('userid', request.userid);
-    data.append('comment', request.comment);
-    data.append('foodweeks', request.foodweeks);
-    data.append('products', jsonProduct);
-    data.append('daterequest', request.daterequest);
-    data.append('deliverydays', request.deliverydays);
-    data.append('deliverytime', request.deliverytime);
-    data.append('isimportant', (request.isimportant ? "1" : "0"));
-     console.log(data);
-    this.data = this.http.post(url, data);
-    this.data.subscribe(data =>{
-      console.log(data);
-    })
+    let fdata = new FormData();
+    fdata.append('userid', request.userid);
+    fdata.append('comment', request.comment);
+    fdata.append('foodweeks', request.foodweeks);
+    fdata.append('products', jsonProduct);
+    fdata.append('daterequest', request.daterequest);
+    fdata.append('deliverydays', request.deliverydays);
+    fdata.append('deliverytime', request.deliverytime);
+    fdata.append('isimportant', (request.isimportant ? "1" : "0"));
+    /*
+    if(!empty($_POST["userid"]) && !empty($_POST["comment"]) && !empty($_POST["foodweeks"])
+     && !empty($_POST["daterequest"]) && !empty($_POST["products"]) && !empty($_POST["deliverytime"])
+     && !empty($_POST["deliverydays"]) && !empty($_POST["isimportant"]))
+    */
+     console.log(fdata);
+   return this.http.post(url, fdata);
+    // this.data.subscribe(data =>{
+    //   console.log(data);
+    // })
   }
 
   

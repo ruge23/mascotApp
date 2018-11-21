@@ -84,7 +84,8 @@
     </ion-select>
   </ion-item> -->
   <ion-list>
-    <accordion></accordion>
+    <accordion [acordionData]="{Titulo: 'Especificaiones',Texto: detailProduct.description}"></accordion>
+    <accordion [acordionData]="{Titulo: 'Composicion',Texto: detailProduct.composition}"></accordion>
 
   </ion-list>
 </ion-content>
