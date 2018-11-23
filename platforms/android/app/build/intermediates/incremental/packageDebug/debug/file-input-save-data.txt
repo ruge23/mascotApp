@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Nov 16 16:22:46 ART 2018
+#Wed Nov 21 18:38:29 ART 2018
 122.file=C\:\\xampp\\htdocs\\mascotasya\\app\\mascotApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\assets\\fonts\\ionicons.eot
 60.set=ANDROID_RESOURCE
 129.file=C\:\\xampp\\htdocs\\mascotasya\\app\\mascotApp\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\assets\\imgs\\elementos\\slider\\slider1.jpg
