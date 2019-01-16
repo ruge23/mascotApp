@@ -1,15 +1,11 @@
 <ion-header>
-
   <ion-navbar color="royal">
-    <ion-title>Detalles</ion-title>   
+    <ion-title text-center>Detalles</ion-title>   
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content>
   <ion-item>
-
     <ion-grid text-center>
       <ion-row wrap>
         <ion-col>
@@ -18,12 +14,12 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <img src="{{detailProduct.imageSrc}}" alt="Image Product">
+          <img src="{{detailProduct.imageSrc}}" alt="Image Product" imageViewer>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-icon float-left name="expand"></ion-icon>
+          <ion-icon float-left name="expand" (click)="expand(detailProduct.imageSrc)"></ion-icon>
         </ion-col>
         <ion-col>
           <ion-icon float-right [color]="isChecked ? 'danger' : 'dark'" name="heart" name="heart" (click)="addToFavorites(1,detailProduct.id)"></ion-icon>
@@ -84,24 +80,22 @@
     </ion-select>
   </ion-item> -->
   <ion-list>
-    <accordion [acordionData]="{Titulo: 'Especificaiones',Texto: detailProduct.description}"></accordion>
-    <accordion [acordionData]="{Titulo: 'Composicion',Texto: detailProduct.composition}"></accordion>
+    <accordion [acordionData]="{Titulo: 'Especificaciones',Texto: detailProduct.description}"></accordion>
+    <accordion [acordionData]="{Titulo: 'Composición',Texto: detailProduct.composition}"></accordion>
 
   </ion-list>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-
     <ion-buttons>
-      <button ion-button full solid color="button" (click)="goToComprar(detailProduct)">
+      <button class="agregar" ion-button full solid color="button" (click)="goToComprar(detailProduct)">
         <ion-col>
-          <ion-icon float-left name="mascotapp-carrito"></ion-icon>
+          <ion-icon style="font-size: 1.5em;" float-left name="mascotapp-carrito"></ion-icon>
         </ion-col>
         <ion-col>
-          <div float-right style="font-size: 1rem;">Agregar al carrito</div>
+          <p float-right style="font-size: 1.2rem !important;">AGREGAR AL CARRITO</p>
         </ion-col>
       </button>
     </ion-buttons>
-
   </ion-toolbar>
 </ion-footer>

@@ -26,34 +26,72 @@
   <ion-slides style="height: 232px !important;" *ngIf="images" autoplay="5000" loop="false" speed="500" class="slides"
     pager="true">
     <ion-slide class="slideBanner" *ngFor="let image of images">
-      <img class="banner" src="{{image.img}}" alt="Product Image">
+      <img class="banner" src="{{urlImg+image.imgpath}}" alt="Product Image">
     </ion-slide>
   </ion-slides>
-  <!--  <ion-fab right bottom>
-      <button ion-fab color="add"><ion-icon name="add"></ion-icon></button>
-    </ion-fab> -->
   <ion-list>
-    <!-- <ion-badge color="secondary"></ion-badge> -->
-    <ion-grid text-center>
-      <ion-row>
+    <ion-grid style="padding-bottom: 0px !important">
+      <ion-row style="border-bottom: 3px solid lightgray;">
         <ion-col>
           <ion-item>
-            <ion-label>Perro</ion-label>
-            <ion-checkbox (ionChange)="onFilterChange()" [(ngModel)]="chkPerro"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Gato</ion-label>
-            <ion-checkbox (ionChange)="onFilterChange()" [(ngModel)]="chkGato"></ion-checkbox>
+            <ion-label class="check">Perro</ion-label>
+            <ion-checkbox color="secondary" (ionChange)="onFilterChange()" [(ngModel)]="chkPerro"></ion-checkbox>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label>Cachorro</ion-label>
-            <ion-checkbox (ionChange)="onFilterChange()" [(ngModel)]="chkCachorro"></ion-checkbox>
+            <ion-label class="check">
+              <ion-row>
+                <ion-col float-left>
+                  <ion-icon color="primary" name="mascotapp-cadog"></ion-icon>Cachorro
+                </ion-col>
+              </ion-row>
+            </ion-label>
+            <ion-checkbox color="secondary" (ionChange)="onFilterChange()" [(ngModel)]="chkCachorro"></ion-checkbox>
           </ion-item>
+        </ion-col>
+        <ion-col>
           <ion-item>
-            <ion-label>Adulto</ion-label>
-            <ion-checkbox (ionChange)="onFilterChange()" [(ngModel)]="chkAdulto"></ion-checkbox>
+            <ion-label class="check">
+              <ion-row>
+                <ion-col float-left>
+                  <ion-icon color="primary" name="mascotapp-adultdog"></ion-icon>Adulto
+                </ion-col>
+              </ion-row>
+            </ion-label>
+            <ion-checkbox color="secondary" (ionChange)="onFilterChange()" [(ngModel)]="chkAdulto"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label class="check">Gato</ion-label>
+            <ion-checkbox color="secondary" (ionChange)="onFilterChange()" [(ngModel)]="chkGato"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label class="check">
+              <ion-row>
+                <ion-col float-left>
+                  <ion-icon color="primary" name="mascotapp-cacat"></ion-icon>Cachorro
+                </ion-col>
+              </ion-row>
+            </ion-label>
+            <ion-checkbox color="secondary" (ionChange)="onFilterChange()" [(ngModel)]="chkCachorro"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label class="check">
+              <ion-row>
+                <ion-col float-left>
+                  <ion-icon color="primary" name="mascotapp-adultcat"></ion-icon>Adulto
+                </ion-col>
+              </ion-row>
+            </ion-label>
+            <ion-checkbox color="secondary" (ionChange)="onFilterChange()" [(ngModel)]="chkAdulto"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -63,12 +101,9 @@
     <ion-slide *ngFor="let product of productsFiltered">
       <ion-card class="cardProduct" (click)="goToInterna(product)">
         <img class="imgProduct" src="{{product.imageSrc}}" alt="Product Image">
-        <ion-card-title>
-          <p>Ranking</p>
-        </ion-card-title>
-        <p>
+        <h3>
           $ {{product.price}}
-        </p>
+        </h3>
         <p>
           <button ion-button class="buyProduct" color="royal">COMPRAR</button>
         </p>
@@ -97,5 +132,17 @@
       </div>
     </ion-card-content>
   </ion-card>
-
+  <ion-grid padding>
+    <ion-row>
+      <ion-col>
+        <img src="../../assets/imgs/img1.png">
+      </ion-col>
+    </ion-row>
+    <ion-row style="height: 30px;"></ion-row>
+    <ion-row>
+      <ion-col>
+        <img src="../../assets/imgs/img2.png" (click)="goToSoporte()">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

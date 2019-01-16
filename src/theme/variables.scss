@@ -23,9 +23,11 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
-
-
+$checkbox-ios-icon-size: 14px;
+$checkbox-md-icon-size: 14px;
+$checkbox-md-icon-checkmark-width: 1px;
+$checkbox-md-icon-border-width: 1px;
+$checkbox-md-icon-border-radius: 4px;
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -52,7 +54,8 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$checkbox-md-icon-background-color-on: map-get($colors, secondary );
+//$checkbox-md-border-bottom-color: map-get($colors, secondary );
 
 $tabs-ios-tab-text-color-active: #D30063;
 $tabs-ios-tab-icon-color-active: #D30063;

@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ShopCartPage } from '../shop-cart/shop-cart';
 import { Storage } from '@ionic/storage';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 import { FavoriteProvider } from './../../providers/favorite/favorite';
 import { ShoppingServiceProvider } from '../../providers/shopping-service/shopping-service';
@@ -26,7 +27,8 @@ export class InternaProductPage {
     public alertCtrl: AlertController,
     private favorite: FavoriteProvider,
     private storage: Storage,
-    private shopprovider: ShoppingServiceProvider
+    private shopprovider: ShoppingServiceProvider,
+    private photoViewer: PhotoViewer
   ) {
       this.detailProduct = this.navParams.data;
       this.isChecked = (this.detailProduct.fav != 0);
@@ -34,6 +36,17 @@ export class InternaProductPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InternaProductPage');
+  }
+
+  expand(image){
+    //console.log('entro',String(image))
+    var options = {
+      share: true, // default is false
+      closeButton: false, // default is true
+      copyToReference: true // default is false
+
+    };
+    this.photoViewer.show(image, 'My image product', options);
   }
 
   addProduct_cart() {

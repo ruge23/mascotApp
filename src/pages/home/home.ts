@@ -4,13 +4,11 @@ import { NavController, Slides, AlertController, LoadingController } from 'ionic
 //import { PRODUCTS } from './../../data/product-mok';
 //import { MARCAS } from './../../data/marcas-mok';
 import { InternaProductPage } from '../interna-product/interna-product';
-import { SLIDES } from '../../data/slides-mok';
-import { LOCALIDADES } from './../../data/localidades-mok';
 import { ProductProvider, iProduct } from '../../providers/product/product';
 import { AuthProvider } from '../../providers/auth/auth';
 import { SearchPage } from '../search/search';
 import { Storage } from '@ionic/storage';
-import { Observable } from 'rxjs/Observable';
+import { ConsultasPage } from '../consultas/consultas';
 
 @Component({
   selector: 'page-home',
@@ -20,7 +18,7 @@ export class HomePage {
 
   @ViewChild('slides') slides: Slides;
 
-  images: any = SLIDES;
+  images: any = [];
   products: iProduct[];
   productsFiltered: iProduct[];
   marcas: any;
@@ -29,6 +27,7 @@ export class HomePage {
   chkAdulto: boolean = true;
   chkPerro: boolean = true;
   chkGato: boolean = true;
+  urlImg:string ="http://ctrlztest.com.ar/mascotasya/apirest/";
 
   constructor(
     public navCtrl: NavController,
@@ -38,11 +37,13 @@ export class HomePage {
     private authProvider: AuthProvider,
     private storage: Storage) {
 
+    this.getSlides();
     this.checkIfCache();
     //this.getLocalidades();
     this.getAllBrand();
-
   }
+
+
   checkIfCache() {
     this.storage.get("prods").then((val) => {
       if (val != null && val != undefined) {
@@ -58,6 +59,13 @@ export class HomePage {
   /* ionViewWillEnter(){
     this.getProducts();
   } */
+
+  getSlides(){
+    this.productProvider.getSlidesProd().subscribe((x=>{
+      console.log('slides',x['data']);
+      this.images = x['data'];
+    }))
+  }
 
   presentLoading() {
     const loader = this.loadingCtrl.create({
@@ -75,7 +83,12 @@ export class HomePage {
     })
   }
 
+  goToSoporte(){
+    this.navCtrl.push(ConsultasPage);
+  }
+  
   onFilterChange() {
+    console.log('entrooo');
     this.productsFiltered = [];
     if (this.chkAdulto || this.chkCachorro || this.chkPerro || this.chkGato) {
       if (this.chkAdulto) {

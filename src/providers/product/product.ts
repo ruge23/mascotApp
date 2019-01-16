@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators/tap';
 export class ProductProvider {
   public brands: any;
   public prods: any;
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public http2: Http) {
     console.log('Hello ProductProvider Provider');
   }
 
@@ -24,6 +24,17 @@ export class ProductProvider {
     return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/brand-all.php")
       .pipe(tap(response => this.brands = response['data']));
   }
+
+  getSlidesProd(): Observable<any>{
+    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/slider-all.php")
+    .pipe(tap(res => res['data']));
+  }
+
+  sendConsulta(userId, mensaje):Observable<any>{
+    return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/send-support.php?userid="+userId+"&mensaje="+mensaje)
+    .pipe(tap(res => res['data']));
+  }
+
 /* 
   getLocalBrands() {
     this.storage.get("brands").then((val) => {
@@ -53,7 +64,7 @@ export class iProduct {
   rate: number;
   brand: string;
   fav: boolean;
-  amount: number = 0;
+  amount: number = 1;
   forDog: boolean;
   forCat: boolean;
   forAdult: boolean;

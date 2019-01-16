@@ -1,6 +1,5 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LOCALIDADES } from '../../data/localidades-mok';
 import { tap } from 'rxjs/operators/tap';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -38,13 +37,17 @@ export class AuthProvider {
     this.storage.set("_uid_",userid);
 
   }
+
   public selectedlocation: string = "";
+  
   getselectedlocation(){
     return this.selectedlocation;
   }
+  
   setselectedlocation(sl){
     this.selectedlocation = sl;
   }
+  
   getLocalidades(): Observable<any> {
     return this.http.get("http://ctrlztest.com.ar/mascotasya/apirest/locations-all.php")
       .pipe(tap(response => response['data']));

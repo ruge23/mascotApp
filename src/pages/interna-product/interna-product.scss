@@ -2,6 +2,10 @@ page-interna-product {
     ion-badge{
         width: 100%;
     }
+    div.toolbar-title{
+        padding-left: 0px !important;
+        width: 220px !important;
+    }
     .item-inner{
         border-bottom: none !important;
     }
@@ -14,5 +18,14 @@ page-interna-product {
 
     h2.price{
         color: map-get($colors, royal);
+    }
+    ion-footer{
+        div.toolbar-content{
+            text-align: center;
+        }
+    }
+    button.agregar{
+        width: 180px;
+        height: 40px;
     }
 }

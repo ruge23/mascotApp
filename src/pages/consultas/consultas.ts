@@ -1,5 +1,7 @@
+import { ProductProvider } from './../../providers/product/product';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -8,13 +10,34 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 export class ConsultasPage {
 
-  todo = {}
+  //todo = {}
+  mensaje:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private service : ProductProvider,
+    public storage: Storage,
+    private alertCtrl: AlertController
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultasPage');
+  }
+
+  sendConsulta(){
+    this.storage.get("_uid_").then((val) => {
+      this.service.sendConsulta(val,this.mensaje).subscribe(x=>{
+        if(x['status'] == 200){
+          this.showAlert();
+        }else{
+          console.log('error');
+        }
+      })
+    });
+
+   
   }
   
   showAlert() {
@@ -28,14 +51,7 @@ export class ConsultasPage {
   }
 
   refresh(){
-    this.todo['title'] = '';
-    this.todo['tipo'] = '';
-    this.todo['description'] = '';
-  }
-
-  logForm() {
-    console.log(this.todo)
-    this.showAlert();
+    this.mensaje ="";
   }
 
 }

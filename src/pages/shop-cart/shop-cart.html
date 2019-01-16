@@ -45,7 +45,7 @@
              <ion-col>
                 <ion-item>
                   <ion-label>Cantidad: </ion-label>
-                  <ion-select (ionChange)="onItemSelection(item.id, $event)" name="cantidad">
+                  <ion-select (ionChange)="onItemSelection(item.id, $event)" [(ngModel)]="cantidadProd">
                     <ion-option *ngFor="let i of convertToArray(item.units)" [value]="i">{{i}}</ion-option>                      
                   </ion-select>
                 </ion-item>
@@ -93,35 +93,69 @@
       </div>
     </ion-list>
   </ion-card>
-  <ion-card>
+  <ion-card style="border-left: 3px solid #287ace;">
     <ion-card-header>
-      Dias y horario de entrega:
+      Día de entrega:
     </ion-card-header>
-    <ion-item>
-      <ion-label floating>Dias de entrega</ion-label>
-      <ion-textarea [(ngModel)]="deliverydays"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Horarios de entrega</ion-label>
-      <ion-textarea [(ngModel)]="deliverytime"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label>Es urgente</ion-label>
-      <ion-checkbox [(ngModel)]="chkImportant"></ion-checkbox>
-    </ion-item>
-  </ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>
+          <ion-row>
+            <p style="color: #f73b76 !important;">Día de entrega</p><p><ion-icon style="color: #f73b76 !important;" name="mascotapp-dia"></ion-icon></p>            
+          </ion-row>
+        </ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" doneText="OK" cancelText="Cancelar" [(ngModel)]="deliverydays"></ion-datetime>
+      </ion-item>
+    </ion-card-content>
+    </ion-card>
+    <ion-card style="border-left: 3px solid #bc07e0;">
+      <ion-card-header>
+        Horario de entrega
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>
+            <ion-row>
+              <p style="color: #f73b76 !important;">Horarios de entrega</p><p><ion-icon style="color: #f73b76 !important;" name="mascotapp-hora"></ion-icon></p>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>
+                <ion-label>Desde</ion-label>
+                <ion-datetime displayFormat="HH:mm" doneText="OK" cancelText="Cancelar" [(ngModel)]="deliverytime"></ion-datetime>
+              </ion-col>
+              <ion-col col-6>
+                <ion-label>Hasta</ion-label>
+                <ion-datetime displayFormat="HH:mm" doneText="OK" cancelText="Cancelar" [(ngModel)]="deliverytime2"></ion-datetime>
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-row>
+              <p><ion-icon style="font-size: 1.3em !important; color: #a10fb8 !important;" name="mascotapp-urg"></ion-icon></p><p style="color: #a10fb8 !important;">Es urgente</p>
+            </ion-row>
+          </ion-label>
+          <ion-checkbox [(ngModel)]="chkImportant"></ion-checkbox>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
   <ion-card>
     <ion-card-header>
       Dejanos tu comentario:
     </ion-card-header>
-    <ion-item>
-      <ion-label floating>Mensaje</ion-label>
+    <ion-item (click)="mensaje()">
+      <ion-label floating>
+        <ion-row>
+          <p style="color: #f73b76 !important;">Mensaje</p><p><ion-icon style="color: #f73b76 !important;" name="mascotapp-msj"></ion-icon></p>
+        </ion-row>
+      </ion-label>
       <ion-textarea [(ngModel)]="comment"></ion-textarea>
     </ion-item>
   </ion-card>
 </ion-content>
 <ion-footer>
     <ion-toolbar>
-        <button ion-button full color="add" (click)="realizarPedido()">Realizar Pedido</button>
+        <button ion-button full color="add" (click)="realizarPedido()">REALIZAR PEDIDO</button>
       </ion-toolbar>
 </ion-footer>

@@ -28,6 +28,7 @@ export class ShopCartPage {
   foodweeks: string = "";
   deliverydays: string = "";
   deliverytime: string = "";
+  deliverytime2: string = "";
   dataProduct = [];
   dataProd = [];
   products = {};
@@ -35,6 +36,7 @@ export class ShopCartPage {
   resultadoTotal: number;
   conProduct: boolean;
   chkImportant: boolean;
+  cantidadProd = 1;
 
   constructor(
     public navCtrl: NavController,
@@ -60,10 +62,41 @@ export class ShopCartPage {
   }
 
   onItemSelection(id, event) {
-
+    this.cantidadProd = 1;
     const newProd = this._cart.find(prod => prod.id == id)
     newProd['amount'] = event;
+    this.cantidadProd = event;
     this.calculateTotal();
+  }
+
+  mensaje(){
+    let alert = this.alertCtrl.create({
+      title: 'Escribe tu mensaje',
+      inputs:[
+        {
+          type: 'textarea',
+          name: 'about',
+          placeholder: 'Escribe tu mensaje',
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Ok',
+          handler: data => {
+            console.log(data);
+            this.comment = data[0];
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 

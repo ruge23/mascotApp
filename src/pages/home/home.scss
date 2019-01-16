@@ -5,6 +5,28 @@ page-home {
     /* .swiper-container.swiper-container-horizontal{
         height: 219px !important;
     } */
+    ion-col.col{
+        padding: 0px !important;
+        //width: 85px !important;
+        ion-item.item{
+            //padding: 0px !important;
+        }
+        ion-label.label{
+            font-size: 1.3rem;
+            color: map-get($colors, royal);
+            ion-row.row{
+                ion-col.col{
+                    ion-icon{
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+        }
+        ion-checkbox.checkbox{
+            font-size: 1rem;
+            margin: 0px !important;
+        }
+    }
     .banner{
         background-size: cover;
     }

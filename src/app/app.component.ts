@@ -11,8 +11,9 @@ import { ModalPage } from './../pages/modal/modal';
 import { timer } from 'rxjs/observable/timer';
 import { AuthProvider } from '../providers/auth/auth';
 import { Storage } from '@ionic/storage';
-import { HomePage } from '../pages/home/home';
+//import { HomePage } from '../pages/home/home';
 import { MenuPage } from '../pages/menu/menu';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +23,13 @@ export class MyApp {
 
   showSplash = true;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, storage: Storage) {
+  constructor(
+    platform: Platform, 
+    statusBar: StatusBar, 
+    splashScreen: SplashScreen,
+    screenOrientation: ScreenOrientation, 
+    storage: Storage
+  ) {
     platform.ready().then(() => {
       
       // Okay, so the platform is ready and our plugins are available.
@@ -30,6 +37,8 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
+      screenOrientation.lock(screenOrientation.ORIENTATIONS.PORTRAIT);
+      
       timer(3000).subscribe(()=> this.showSplash = false)
       storage.get("_uid_").then(x => {
         if(x > 0){

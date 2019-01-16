@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { AboutPage } from '../about/about';
 import { HomePage } from '../home/home';
-import { MasPage } from './../mas/mas';
 import { PendientesPage } from './../pendientes/pendientes';
 import { FavoritesPage } from '../favorites/favorites';
 import { ShopCartPage } from '../shop-cart/shop-cart';
@@ -21,7 +20,6 @@ export class TabsPage {
   tab2Root = FavoritesPage;
   tab3Root = ShopCartPage;
   tab4Root = PendientesPage;
-  tab5Root = MasPage;
   count$: Observable<number>;
   myIndex:number;
   badge: number;

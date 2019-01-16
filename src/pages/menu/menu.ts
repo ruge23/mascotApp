@@ -4,7 +4,6 @@ import { IonicPage, NavController, NavParams, Nav, App } from 'ionic-angular';
 import { TabsPage } from './../tabs/tabs';
 import { LoginPage } from './../login/login';
 import { ConsultasPage } from './../consultas/consultas';
-import { MasPage } from './../mas/mas';
 import { PendientesPage } from './../pendientes/pendientes';
 import { ShopCartPage } from './../shop-cart/shop-cart';
 import { FavoritesPage } from './../favorites/favorites';
@@ -30,18 +29,16 @@ export class MenuPage {
   rootPage= TabsPage;
 
   pages : PageInterface[] = [
-    {title: 'Perfil', pageName: 'MasPage', tabComponent: 'MasPage', index: 4, icon: 'contact', isMenu: true},        
     {title: 'Home', pageName: 'HomePage', tabComponent: 'HomePage', index: 0, icon: 'mascotapp-home', isMenu: true},    
     {title: 'Favoritos', pageName: 'FavoritesPage', tabComponent: 'FavoritesPage', index: 1, icon: 'mascotapp-favoritos', isMenu: true},        
-    {title: 'Carrito', pageName: 'ShopCartPage', tabComponent: 'ShopCartPage', index: 2, icon: 'mascotapp-carrito', isMenu: true},        
-    {title: 'Pendientes', pageName: 'PendientesPage', tabComponent: 'PendientesPage', index: 3, icon: 'mascotapp-pendientes', isMenu: false},        
-    {title: 'Soporte', pageName: 'ConsultasPage', icon: 'chatbubbles', isMenu: false}
+    {title: 'Carrito', pageName: 'ShopCartPage', tabComponent: 'ShopCartPage', index: 2, icon: 'mascotapp-carrito', isMenu: true},                
+    {title: 'Soporte', pageName: 'ConsultasPage', icon: 'mascotapp-soporte', isMenu: false}
   ]
 
   @ViewChild(Nav) nav: Nav;
-  pagesForMenu: any;
+  //pagesForMenu: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private appCtrl: App, public storage: Storage) {
-    this.pagesForMenu = this.pages.filter(x => x.isMenu);
+    //this.pagesForMenu = this.pages.filter(x => x.isMenu);
   }
 
   openPage(page: PageInterface){

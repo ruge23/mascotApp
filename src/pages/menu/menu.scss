@@ -1,5 +1,32 @@
 page-menu {
+    .contentMenu{
+        background: linear-gradient(to bottom,  #bd05dd 0%, #108ccc 100%);
+    }
+    button.item.item-block.buttonMenu{
+        padding-left: 50px;
+        background: transparent;
+    }
+    ion-header.headerMenu{
+        .toolbar {
+          position: absolute;
+      
+          .toolbar-background {
+            background: transparent;
+          }
+          .toolbar-title {
+            color: white;
+          }
+        }
+    }
+    ion-item.avatarMenu.item.item-block{
+        background: transparent;
+    }
     ion-label.label{
         color: map-get($colors, iconMenu);
+    }
+    ion-footer {
+        &.footer-md::before {
+            background-image: none;
+        }
     }
 }

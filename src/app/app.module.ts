@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 import { AboutPage } from '../pages/about/about';
 import { ConsultasPage } from './../pages/consultas/consultas';
@@ -16,6 +18,7 @@ import { AccordionComponent } from './../components/accordion/accordion';
 import { ModalPage } from './../pages/modal/modal';
 import { MenuPage } from './../pages/menu/menu';
 
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
@@ -50,6 +53,7 @@ import { SearchPage } from '../pages/search/search';
     BrowserModule,
     IonicModule.forRoot(MyApp),    
     IonicStorageModule.forRoot(),
+    IonicImageViewerModule,
     HttpModule,
     HttpClientModule
   ],
@@ -74,7 +78,9 @@ import { SearchPage } from '../pages/search/search';
   providers: [
     StatusBar,
     SplashScreen,
+    ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PhotoViewer,
     AuthProvider,
     ProductProvider,
     FavoriteProvider,

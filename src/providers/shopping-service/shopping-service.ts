@@ -34,6 +34,7 @@ export class ShoppingServiceProvider {
 
 
   public addItem(product){
+    product.amount = 1;
     this.products.push(product);
     this.listSizeSubject.next(this.products.length);//next method updates the stream value
   }
@@ -86,8 +87,6 @@ export class ShoppingServiceProvider {
     //   console.log(data);
     // })
   }
-
-  
 
 }
 export class cartRequest{

@@ -21,9 +21,9 @@
       <ion-thumbnail item-start>
         <img src="{{item.imageSrc}}">
       </ion-thumbnail>
-      <h2>{{item.name}}</h2>
+      <h2 text-wrap>{{item.name}}</h2>
       <p>${{item.price}}</p>
-      <button ion-button icon-only item-end (click)="removeFromCart(item)">
+      <button ion-button icon-only item-end color="iconMenu" (click)="removeFromCart(item)">
         <ion-icon name="trash"></ion-icon>
       </button>
     </ion-item>

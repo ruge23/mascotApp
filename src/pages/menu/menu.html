@@ -1,28 +1,48 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar color="royal">
+  <ion-header class="headerMenu">
+    <ion-toolbar transparent>
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
  
-  <ion-content>
-    <ion-list>
-      <button ion-item detail-none block menuClose *ngFor="let p of pagesForMenu" (click)="openPage(p)">
-        <ion-icon item-start [name]="p.icon" color="iconMenu"></ion-icon>
-        {{ p.title }}
-      </button>
-    </ion-list>
- 
+  <ion-content class="contentMenu">
+    <ion-grid style="margin-top: 30%">
+      <ion-row text-center>
+        <ion-col>
+          <ion-item class="avatarMenu" no-lines>
+            <ion-avatar item-start>
+              <img src="../../assets/imgs/elementos/productos/producto4.jpg">
+            </ion-avatar>
+            <h2 style="color: white;">Avery Carroll</h2>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col text-center>
+          <ion-list text-center>
+            <button class="buttonMenu" ion-item no-lines detail-none block menuClose *ngFor="let p of pages" (click)="openPage(p)">
+              <ion-icon style="color: white;" item-start [name]="p.icon"></ion-icon>
+              <p style="color: white;">{{ p.title }}</p>
+            </button>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 10%;" text-center>
+        <ion-col>
+          <img style="width: 80%;" src="../../assets/imgs/elementos/logo/logo-blanco.png" alt="logo mascotas">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-content>
  
   <ion-footer>
-    <ion-toolbar>
+    <ion-toolbar transparent>
       <ion-row align-items-center>
         <ion-col>
           <button ion-button full clear icon-left (click)="logout()">
-            <ion-icon name="sign-out">
-            </ion-icon>
-            Logout</button>
+            <ion-icon style="color: white;" name="power"></ion-icon>
+            <p style="color: white;">Logout</p>
+          </button>
         </ion-col>
       </ion-row>
     </ion-toolbar>

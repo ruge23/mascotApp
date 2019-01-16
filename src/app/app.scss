@@ -40,7 +40,11 @@
 }
 *{
     font-family: Open;
+    ion-card{
+        box-shadow: 0px 0px 30px -4px rgba(128,128,128,1) !important;
+    }
 }
+
 ion-icon {
     &[class*="mascotapp-"] {
         // Instead of using the font-based icons
@@ -67,6 +71,33 @@ ion-icon {
     }
     &[class*="mascotapp-mas"] {
         mask-image: url('../assets/imgs/elementos/iconos menu footer fix/mas.svg');
+    }
+    &[class*="mascotapp-dia"] {
+        mask-image: url('../assets/imgs/elementos/calendario.svg');
+    }
+    &[class*="mascotapp-hora"] {
+        mask-image: url('../assets/imgs/elementos/reloj.svg');
+    }
+    &[class*="mascotapp-urg"] {
+        mask-image: url('../assets/imgs/elementos/urgente.svg');
+    }
+    &[class*="mascotapp-msj"] {
+        mask-image: url('../assets/imgs/elementos/mensaje.svg');
+    }
+    &[class*="mascotapp-adultdog"] {
+        mask-image: url('../assets/imgs/perro-adulto.svg');
+    }
+    &[class*="mascotapp-cadog"] {
+        mask-image: url('../assets/imgs/perro-cachorro.svg');
+    }
+    &[class*="mascotapp-adultcat"] {
+        mask-image: url('../assets/imgs/gato-adulto.svg');
+    }
+    &[class*="mascotapp-cacat"] {
+        mask-image: url('../assets/imgs/gato-cachorro.svg');
+    }
+    &[class*="mascotapp-soporte"] {
+        mask-image: url('../assets/imgs/soporte.svg');
     }
  
 }
